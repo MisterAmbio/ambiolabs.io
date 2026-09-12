@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ambio Labs | Android Micro-Utilities</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="shortcut icon" href="logo.jpg" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+          colors: {
+            brand: {
+              black: '#040907',
+              dark: '#08140F',
+              card: '#0D2018',
+              border: '#16382B',
+              primary: '#10F5A1',
+              hover: '#05DF88',
+              muted: '#7E9B8F'
+            }
+          },
+          boxShadow: {
+            'neon': '0 0 30px -5px rgba(16, 245, 161, 0.35)',
+            'neon-lg': '0 0 60px -10px rgba(16, 245, 161, 0.45)',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .glass-card {
+      background: rgba(13, 32, 24, 0.65);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(22, 56, 43, 0.8);
+    }
+    .mesh-gradient {
+      background: radial-gradient(circle at 50% 20%, rgba(16, 245, 161, 0.12) 0%, rgba(4, 9, 7, 0) 65%);
+    }
+  </style>
+</head>
+<body class="bg-brand-black text-slate-100 font-sans min-h-screen flex flex-col selection:bg-brand-primary selection:text-brand-black relative overflow-x-hidden">
+
+  <!-- Glow superior detrás del hero -->
+  <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-[600px] mesh-gradient pointer-events-none -z-10"></div>
+
+  <!-- Barra de navegación -->
+  <nav class="max-w-6xl w-full mx-auto px-6 py-6 flex items-center justify-between border-b border-brand-border/40">
+    <div class="flex items-center gap-3">
+      <div class="relative w-10 h-10 rounded-full overflow-hidden p-[2px] bg-gradient-to-tr from-brand-primary to-emerald-900 shadow-neon">
+        <img src="logo.jpg" alt="Ambio Labs Logo" class="w-full h-full object-cover rounded-full bg-brand-dark">
+      </div>
+      <span class="font-bold text-lg tracking-tight text-white">Ambio<span class="text-brand-primary"> Labs</span></span>
+    </div>
+    <!---->
+    <div class="flex items-center gap-6 text-sm">
+      <!--<a href="#apps" class="text-brand-muted hover:text-white transition-colors">Apps</a> -->
+      <a href="https://play.google.com/store/apps/dev?id=5425741795870723879" target="_blank" rel="noopener" class="px-4 py-2 rounded-lg font-semibold text-xs tracking-wide uppercase bg-brand-primary text-brand-black hover:bg-brand-hover transition-all duration-200 shadow-neon hover:scale-[1.02] active:scale-[0.98]">
+        Google Play
+      </a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="max-w-4xl mx-auto px-6 pt-20 pb-16 text-center flex flex-col items-center">
+    
+    <!-- Avatar con halo dinámico -->
+    <div class="relative mb-8 group">
+      <div class="absolute inset-0 rounded-full bg-brand-primary/20 blur-2xl group-hover:blur-3xl transition-all duration-500"></div>
+      <div class="relative w-36 h-36 rounded-full p-1 bg-gradient-to-b from-brand-primary/80 via-emerald-800 to-transparent shadow-neon-lg">
+        <img src="logo.jpg" alt="Ambio Mascot" class="w-full h-full object-cover rounded-full bg-brand-dark">
+      </div>
+      <div class="absolute -bottom-2 left-1/2 -translate-x-1/2 px-3 py-1 bg-brand-card border border-brand-border rounded-full text-[11px] font-mono font-medium text-brand-primary tracking-widest uppercase">
+        v2.0 Deploy
+      </div>
+    </div>
+
+    <!-- Títulos -->
+    <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight text-white mb-5 leading-tight">
+      Herramientas rápidas.<br>
+      <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-primary to-emerald-400">Cero complicaciones.</span>
+    </h1>
+    
+    <p class="text-base sm:text-lg text-brand-muted max-w-xl mb-10 leading-relaxed font-normal">
+      Micro-utilidades para Android diseñadas para resolver tareas puntuales al instante: ligeras, offline y sin consumo excesivo de batería.
+    </p>
+
+    <!-- Métricas rápidas / Badges -->
+    <div class="grid grid-cols-3 gap-3 sm:gap-6 w-full max-w-lg mb-12">
+      <div class="glass-card p-3 sm:p-4 rounded-xl text-center">
+        <p class="text-lg sm:text-xl font-bold text-white font-mono">&lt; 10 MB</p>
+        <p class="text-xs text-brand-muted mt-0.5">Ultraligeras</p>
+      </div>
+      <div class="glass-card p-3 sm:p-4 rounded-xl text-center">
+        <p class="text-lg sm:text-xl font-bold text-brand-primary font-mono">100%</p>
+        <p class="text-xs text-brand-muted mt-0.5">Offline-Ready</p>
+      </div>
+      <div class="glass-card p-3 sm:p-4 rounded-xl text-center">
+        <p class="text-lg sm:text-xl font-bold text-white font-mono">0 ms</p>
+        <p class="text-xs text-brand-muted mt-0.5">Sin latencia</p>
+      </div>
+    </div>
+
+  </header>
+
+  <!-- Catálogo de Apps 
+  <section id="apps" class="max-w-5xl mx-auto px-6 py-12 w-full flex-1">
+    <div class="flex items-center justify-between mb-8">
+      <div>
+        <h2 class="text-2xl font-bold text-white tracking-tight">Catálogo de Utilidades</h2>
+        <p class="text-sm text-brand-muted mt-1">Herramientas nativas mantenidas bajo el sello Ambio Labs.</p>
+      </div>
+      <span class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono text-emerald-400 bg-emerald-950/40 border border-emerald-800/60">
+        <span class="w-1.5 h-1.5 rounded-full bg-brand-primary animate-pulse"></span> Sistema Activo
+      </span>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      
+       Card Placeholder 1 --
+      <div class="glass-card p-6 rounded-2xl flex flex-col justify-between hover:border-brand-primary/50 transition-all duration-300 group">
+        <div>
+          <div class="w-12 h-12 rounded-xl bg-brand-dark border border-brand-border flex items-center justify-center text-brand-primary mb-4 font-mono font-bold text-lg group-hover:shadow-neon transition-all">
+            FX
+          </div>
+          <h3 class="text-lg font-bold text-white group-hover:text-brand-primary transition-colors">Calculadoras Especializadas</h3>
+          <p class="text-sm text-brand-muted mt-2 leading-relaxed">
+            Módulos de cálculo estático y simulación de comisiones. Sin suscripciones abusivas ni sobrecarga de publicidad.
+          </p>
+        </div>
+        <div class="mt-6 pt-4 border-t border-brand-border/40 flex items-center justify-between">
+          <span class="text-xs font-mono text-emerald-400/80">En Producción</span>
+          <span class="text-xs font-semibold text-brand-muted group-hover:text-white flex items-center gap-1">Ver ficha &rarr;</span>
+        </div>
+      </div>
+
+      -- Card Placeholder 2 --
+      <div class="glass-card p-6 rounded-2xl flex flex-col justify-between hover:border-brand-primary/50 transition-all duration-300 group">
+        <div>
+          <div class="w-12 h-12 rounded-xl bg-brand-dark border border-brand-border flex items-center justify-center text-brand-primary mb-4 font-mono font-bold text-lg group-hover:shadow-neon transition-all">
+            01
+          </div>
+          <h3 class="text-lg font-bold text-white group-hover:text-brand-primary transition-colors">Procesamiento Local de Archivos</h3>
+          <p class="text-sm text-brand-muted mt-2 leading-relaxed">
+            Conversión y optimización de medios directamente en la memoria del dispositivo. Cero subida a la nube para máxima privacidad.
+          </p>
+        </div>
+        <div class="mt-6 pt-4 border-t border-brand-border/40 flex items-center justify-between">
+          <span class="text-xs font-mono text-emerald-400/80">En Producción</span>
+          <span class="text-xs font-semibold text-brand-muted group-hover:text-white flex items-center gap-1">Ver ficha &rarr;</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+-->
+
+  <!-- Footer Legal (Requisito Play Console) -->
+  <footer class="border-t border-brand-border/60 bg-brand-dark/40 py-10 mt-16">
+    <div class="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-6 text-xs text-brand-muted">
+      
+      <div class="flex items-center gap-3">
+        <span class="font-bold text-white">Ambio Labs</span>
+        <span>•</span>
+        <span>&copy; 2026 Todos los derechos reservados.</span>
+      </div>
+
+      <!-- Enlaces que abren modales -->
+      <div class="flex items-center gap-6">
+        <button onclick="openModal('privacy-modal')" class="hover:text-brand-primary transition-colors">Política de Privacidad</button>
+        <button onclick="openModal('terms-modal')" class="hover:text-brand-primary transition-colors">Términos de Servicio</button>
+        <a href="mailto:iam.ambiorix@gmail.com" class="hover:text-brand-primary transition-colors">Contacto</a>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Modal Política de Privacidad -->
+  <div id="privacy-modal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+    <div class="glass-card max-w-2xl w-full max-h-[80vh] rounded-2xl p-6 sm:p-8 flex flex-col border border-brand-border">
+      <div class="flex items-center justify-between pb-4 border-b border-brand-border">
+        <h3 class="text-lg font-bold text-white">Política de Privacidad</h3>
+        <button onclick="closeModal('privacy-modal')" class="text-brand-muted hover:text-white text-lg">&times;</button>
+      </div>
+      <div class="overflow-y-auto py-4 text-xs leading-relaxed text-brand-muted space-y-4">
+        <p><strong>Última actualización:</strong> Septiembre 2026</p>
+        <p>En <strong>Ambio Labs</strong>, la privacidad de nuestros usuarios es una prioridad. Nuestras aplicaciones están diseñadas como micro-utilidades que operan principalmente de manera local en tu dispositivo móvil.</p>
+        <h4 class="text-white font-semibold">1. Datos Recopilados</h4>
+        <p>Nuestras aplicaciones no requieren la creación de cuentas ni recopilan identificadores personales directamente. Los datos de uso o cálculo se almacenan de forma local en la memoria interna de tu dispositivo.</p>
+        <h4 class="text-white font-semibold">2. Servicios Publicitarios de Terceros</h4>
+        <p>Para mantener nuestras aplicaciones gratuitas, utilizamos Google AdMob para servir anuncios. AdMob puede recopilar y procesar identificadores anónimos de publicidad del dispositivo y datos de diagnóstico para optimizar la entrega de anuncios.</p>
+        <h4 class="text-white font-semibold">3. Contacto</h4>
+        <p>Si tienes dudas sobre nuestras políticas de datos, puedes comunicarte a través del canal oficial de soporte.</p>
+      </div>
+      <div class="pt-4 border-t border-brand-border flex justify-end">
+        <button onclick="closeModal('privacy-modal')" class="px-4 py-2 bg-brand-primary text-brand-black rounded-lg font-semibold text-xs">Entendido</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Términos de Servicio -->
+  <div id="terms-modal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+    <div class="glass-card max-w-2xl w-full max-h-[80vh] rounded-2xl p-6 sm:p-8 flex flex-col border border-brand-border">
+      <div class="flex items-center justify-between pb-4 border-b border-brand-border">
+        <h3 class="text-lg font-bold text-white">Términos de Servicio</h3>
+        <button onclick="closeModal('terms-modal')" class="text-brand-muted hover:text-white text-lg">&times;</button>
+      </div>
+      <div class="overflow-y-auto py-4 text-xs leading-relaxed text-brand-muted space-y-4">
+        <p>Al descargar o utilizar las aplicaciones desarrolladas por <strong>Ambio Labs</strong>, aceptas estos términos en su totalidad. Nuestras herramientas se proporcionan "tal cual", sin garantías expresas sobre resultados específicos o cálculos de inversión/estimaciones. El usuario asume toda responsabilidad en el uso e interpretación de los datos procesados por las utilidades.</p>
+      </div>
+      <div class="pt-4 border-t border-brand-border flex justify-end">
+        <button onclick="closeModal('terms-modal')" class="px-4 py-2 bg-brand-primary text-brand-black rounded-lg font-semibold text-xs">Aceptar</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function openModal(id) {
+      document.getElementById(id).classList.remove('hidden');
+    }
+    function closeModal(id) {
+      document.getElementById(id).classList.add('hidden');
+    }
+  </script>
+
+</body>
+</html>

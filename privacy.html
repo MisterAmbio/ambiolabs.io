@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Política de Privacidad | Ambio Labs</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="shortcut icon" href="logo.jpg" type="image/jpeg">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+          colors: {
+            brand: {
+              black: '#040907',
+              dark: '#08140F',
+              card: '#0D2018',
+              border: '#16382B',
+              primary: '#10F5A1',
+              hover: '#05DF88',
+              muted: '#7E9B8F'
+            }
+          },
+          boxShadow: {
+            'neon': '0 0 30px -5px rgba(16, 245, 161, 0.35)',
+            'neon-lg': '0 0 60px -10px rgba(16, 245, 161, 0.45)',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .glass-card {
+      background: rgba(13, 32, 24, 0.65);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(22, 56, 43, 0.8);
+    }
+    .mesh-gradient {
+      background: radial-gradient(circle at 50% 20%, rgba(16, 245, 161, 0.12) 0%, rgba(4, 9, 7, 0) 65%);
+    }
+  </style>
+</head>
+<body class="bg-brand-black text-slate-100 font-sans min-h-screen flex flex-col selection:bg-brand-primary selection:text-brand-black relative overflow-x-hidden">
+
+  <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-[600px] mesh-gradient pointer-events-none -z-10"></div>
+
+  <!-- Barra de navegación -->
+  <nav class="max-w-6xl w-full mx-auto px-6 py-6 flex items-center justify-between border-b border-brand-border/40">
+    <a href="index.html" class="flex items-center gap-3">
+      <div class="relative w-10 h-10 rounded-full overflow-hidden p-[2px] bg-gradient-to-tr from-brand-primary to-emerald-900 shadow-neon">
+        <img src="logo.jpg" alt="Ambio Labs Logo" class="w-full h-full object-cover rounded-full bg-brand-dark">
+      </div>
+      <span class="font-bold text-lg tracking-tight text-white">Ambio<span class="text-brand-primary">Labs</span></span>
+    </a>
+    
+    <div class="flex items-center gap-6 text-sm">
+      <a href="index.html" class="text-xs font-mono text-brand-muted hover:text-brand-primary transition-colors">&larr; Volver al inicio</a>
+      <a href="https://play.google.com/store/apps/dev?id=5425741795870723879" target="_blank" rel="noopener" class="px-4 py-2 rounded-lg font-semibold text-xs tracking-wide uppercase bg-brand-primary text-brand-black hover:bg-brand-hover transition-all duration-200 shadow-neon hover:scale-[1.02] active:scale-[0.98]">
+        Google Play
+      </a>
+    </div>
+  </nav>
+
+  <!-- Contenido Legal -->
+  <main class="max-w-4xl mx-auto px-6 py-16 flex-1 w-full">
+    <div class="glass-card rounded-2xl p-8 sm:p-12 space-y-8">
+      
+      <div class="border-b border-brand-border/60 pb-6">
+        <h1 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">Política de Privacidad</h1>
+        <p class="text-xs font-mono text-brand-primary mt-2">Última actualización: Septiembre 2026</p>
+      </div>
+
+      <div class="space-y-6 text-sm leading-relaxed text-brand-muted font-normal">
+        <p>En <strong class="text-white font-semibold">Ambio Labs</strong>, la privacidad de nuestros usuarios es una prioridad fundamental. Esta Política de Privacidad describe cómo se gestiona la información dentro de nuestras aplicaciones móviles para Android distribuidas a través de Google Play Store.</p>
+
+        <section class="space-y-2">
+          <h2 class="text-lg font-bold text-white tracking-tight">1. Datos Personales y Procesamiento Local</h2>
+          <p>Nuestras aplicaciones están concebidas bajo el principio de micro-utilidades locales. <strong class="text-white">No recopilamos ni almacenamos datos personales de identificación</strong> (como nombre, número de teléfono, dirección postal o contraseñas) en ningún servidor externo. Todas las preferencias de usuario, historiales de cálculo o archivos procesados permanecen exclusivamente en el almacenamiento local del dispositivo.</p>
+        </section>
+
+        <section class="space-y-2">
+          <h2 class="text-lg font-bold text-white tracking-tight">2. Servicios Publicitarios de Terceros (Google AdMob)</h2>
+          <p>Para sostener el mantenimiento y permitir que nuestras aplicaciones sigan siendo gratuitas, utilizamos los servicios publicitarios de <strong class="text-white">Google AdMob</strong>. Google y sus socios pueden utilizar identificadores de publicidad para servir anuncios relevantes. AdMob puede recopilar y procesar automáticamente:</p>
+          <ul class="list-disc pl-5 space-y-1 text-xs text-brand-muted/90">
+            <li>Identificador publicitario del dispositivo (Google Advertising ID / GAID).</li>
+            <li>Dirección IP aproximada (para geolocalización a nivel de país o región).</li>
+            <li>Métricas de interacción publicitaria (impresiones, clics y porcentaje de visualización).</li>
+            <li>Datos de diagnóstico de rendimiento e informes de fallos (*crash logs*).</li>
+          </ul>
+          <p class="text-xs mt-2">Para conocer en detalle cómo gestiona Google estos datos, consulta la <a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener" class="text-brand-primary underline hover:text-brand-hover">Política de Publicidad de Google</a>.</p>
+        </section>
+
+        <section class="space-y-2">
+          <h2 class="text-lg font-bold text-white tracking-tight">3. Permisos del Sistema Operativo</h2>
+          <p>Nuestras herramientas solo solicitarán permisos explícitos en tiempo de ejecución cuando sea estrictamente indispensable para ejecutar la función requerida (por ejemplo, acceso a archivos multimedia en conversores de medios o acceso a red para inicializar el SDK publicitario). Ningún permiso se utiliza para rastrear al usuario fuera del ámbito funcional de la app.</p>
+        </section>
+
+        <section class="space-y-2">
+          <h2 class="text-lg font-bold text-white tracking-tight">4. Privacidad de Menores</h2>
+          <p>Nuestras aplicaciones son herramientas utilitarias generales y no están dirigidas específicamente a menores de 13 años. No recopilamos conscientemente información personal de niños.</p>
+        </section>
+
+        <section class="space-y-2">
+          <h2 class="text-lg font-bold text-white tracking-tight">5. Contacto</h2>
+          <p>Si tienes preguntas o inquietudes relacionadas con nuestras prácticas de privacidad o el comportamiento de nuestras utilidades, puedes contactarnos directamente mediante correo electrónico en: <a href="mailto:contact@ambiolabs.dev" class="text-brand-primary underline hover:text-brand-hover font-mono">iam.ambiorix@gmail.com</a>.</p>
+        </section>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer Legal -->
+  <footer class="border-t border-brand-border/60 bg-brand-dark/40 py-10 mt-16">
+    <div class="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-6 text-xs text-brand-muted">
+      <div class="flex items-center gap-3">
+        <span class="font-bold text-white">Ambio Labs</span>
+        <span>•</span>
+        <span>&copy; 2026 Todos los derechos reservados.</span>
+      </div>
+      <div class="flex items-center gap-6">
+        <a href="privacy.html" class="text-brand-primary font-medium">Política de Privacidad</a>
+        <a href="terms.html" class="hover:text-brand-primary transition-colors">Términos de Servicio</a>
+        <a href="contact.html" class="hover:text-brand-primary transition-colors">Contacto</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

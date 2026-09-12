@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contacto y Soporte | Ambio Labs</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="shortcut icon" href="logo.jpg" type="image/jpeg">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+          colors: {
+            brand: {
+              black: '#040907',
+              dark: '#08140F',
+              card: '#0D2018',
+              border: '#16382B',
+              primary: '#10F5A1',
+              hover: '#05DF88',
+              muted: '#7E9B8F'
+            }
+          },
+          boxShadow: {
+            'neon': '0 0 30px -5px rgba(16, 245, 161, 0.35)',
+            'neon-lg': '0 0 60px -10px rgba(16, 245, 161, 0.45)',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .glass-card {
+      background: rgba(13, 32, 24, 0.65);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(22, 56, 43, 0.8);
+    }
+    .mesh-gradient {
+      background: radial-gradient(circle at 50% 20%, rgba(16, 245, 161, 0.12) 0%, rgba(4, 9, 7, 0) 65%);
+    }
+  </style>
+</head>
+<body class="bg-brand-black text-slate-100 font-sans min-h-screen flex flex-col selection:bg-brand-primary selection:text-brand-black relative overflow-x-hidden">
+
+  <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-[600px] mesh-gradient pointer-events-none -z-10"></div>
+
+  <!-- Barra de navegación -->
+  <nav class="max-w-6xl w-full mx-auto px-6 py-6 flex items-center justify-between border-b border-brand-border/40">
+    <a href="index.html" class="flex items-center gap-3">
+      <div class="relative w-10 h-10 rounded-full overflow-hidden p-[2px] bg-gradient-to-tr from-brand-primary to-emerald-900 shadow-neon">
+        <img src="logo.jpg" alt="Ambio Labs Logo" class="w-full h-full object-cover rounded-full bg-brand-dark">
+      </div>
+      <span class="font-bold text-lg tracking-tight text-white">Ambio<span class="text-brand-primary">Labs</span></span>
+    </a>
+    
+    <div class="flex items-center gap-6 text-sm">
+      <a href="index.html" class="text-xs font-mono text-brand-muted hover:text-brand-primary transition-colors">&larr; Volver al inicio</a>
+      <a href="https://play.google.com/store/apps/dev?id=5425741795870723879" target="_blank" rel="noopener" class="px-4 py-2 rounded-lg font-semibold text-xs tracking-wide uppercase bg-brand-primary text-brand-black hover:bg-brand-hover transition-all duration-200 shadow-neon hover:scale-[1.02] active:scale-[0.98]">
+        Google Play
+      </a>
+    </div>
+  </nav>
+
+  <!-- Contenedor Central de Contacto -->
+  <main class="max-w-xl mx-auto px-6 py-20 flex-1 w-full flex flex-col justify-center">
+    <div class="glass-card rounded-2xl p-8 sm:p-12 text-center relative overflow-hidden">
+      
+      <div class="w-14 h-14 rounded-2xl bg-brand-dark border border-brand-border flex items-center justify-center text-brand-primary mx-auto mb-6 shadow-neon">
+        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+        </svg>
+      </div>
+
+      <h1 class="text-3xl font-extrabold text-white tracking-tight mb-3">Soporte Técnico</h1>
+      <p class="text-sm text-brand-muted mb-8 leading-relaxed">
+        Canal oficial de atención para reportes de errores, sugerencias de funciones o consultas de compatibilidad de utilidades de Ambio Labs.
+      </p>
+
+      <div class="p-4 bg-brand-dark/90 border border-brand-border rounded-xl flex flex-col sm:flex-row items-center justify-between gap-4 font-mono text-sm">
+        <span class="text-white text-xs sm:text-sm truncate">iam.ambiorix@gmail.com</span>
+        <a href="mailto:iam.ambiorix@gmail.com" class="w-full sm:w-auto px-5 py-2.5 bg-brand-primary text-brand-black font-semibold rounded-lg text-xs hover:bg-brand-hover transition-all duration-200 shadow-neon">
+          Enviar Correo
+        </a>
+      </div>
+
+      <div class="mt-8 pt-6 border-t border-brand-border/40 text-left text-xs text-brand-muted space-y-2">
+        <p class="flex items-center gap-2">
+          <span class="w-1.5 h-1.5 rounded-full bg-brand-primary"></span>
+          Respuesta técnica habitual: 24 a 48 horas laborables.
+        </p>
+        <p class="flex items-center gap-2">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+          Incluye el modelo de dispositivo y versión de Android para reportar fallos.
+        </p>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer Legal -->
+  <footer class="border-t border-brand-border/60 bg-brand-dark/40 py-10 mt-16">
+    <div class="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-6 text-xs text-brand-muted">
+      <div class="flex items-center gap-3">
+        <span class="font-bold text-white">Ambio Labs</span>
+        <span>•</span>
+        <span>&copy; 2026 Todos los derechos reservados.</span>
+      </div>
+      <div class="flex items-center gap-6">
+        <a href="privacy.html" class="hover:text-brand-primary transition-colors">Política de Privacidad</a>
+        <a href="terms.html" class="hover:text-brand-primary transition-colors">Términos de Servicio</a>
+        <a href="contact.html" class="text-brand-primary font-medium">Contacto</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
