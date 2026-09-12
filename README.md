@@ -1,2 +1,2 @@
-# Ambio-Labs
+# Ambio Labs
 Ambio Labs landing page.
