@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Política de Privacidad — Historial de Notificaciones | Ambio Labs</title>
+  <meta name="description" content="Política de privacidad oficial para Historial de Notificaciones (dev.ambiolabs.notificationlog) en Google Play.">
+  <link rel="icon" type="image/jpeg" href="logo.jpg">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+          colors: {
+            brand: {
+              deep: '#030706',
+              surface: '#06110C',
+              card: 'rgba(10, 24, 18, 0.75)',
+              elevated: '#0C1E16',
+              neon: '#10F5A1',
+              neonLight: '#5FF7BC',
+              muted: '#809C91',
+              dim: '#4B6357',
+              border: 'rgba(22, 56, 43, 0.65)'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-ambient-matrix text-slate-100 font-sans min-h-screen flex flex-col relative selection:bg-brand-neon selection:text-black overflow-x-hidden">
+
+  <div class="fixed inset-0 mesh-grid pointer-events-none -z-10 opacity-70"></div>
+
+  <!-- Header -->
+  <header class="sticky top-0 z-50 w-full bg-[#030706]/85 backdrop-blur-xl border-b border-white/[0.06]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-3 group">
+        <div class="w-8 h-8 rounded-full overflow-hidden p-[1.5px] bg-gradient-to-tr from-brand-neon to-emerald-900 shadow-neon">
+          <img src="logo.jpg" alt="Logo Ambio Labs" class="w-full h-full object-cover rounded-full">
+        </div>
+        <span class="font-extrabold text-base text-white">Ambio<span class="text-brand-neon">Labs</span></span>
+      </a>
+      <div class="flex items-center gap-4 text-xs font-mono">
+        <a href="index.html" class="text-brand-muted hover:text-white transition-colors">&larr; Inicio</a>
+        <a href="privacy.html" class="text-brand-muted hover:text-brand-neon transition-colors">Todas las Políticas</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 py-16 flex-1 w-full">
+    <div class="glass-panel-tech rounded-3xl p-6 sm:p-12 relative overflow-hidden">
+      
+      <!-- App Header Badge -->
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-6 pb-8 border-b border-white/[0.08] mb-8">
+        <div class="flex items-center gap-4">
+          <img src="assets/icons/notificationlog-icon.png" alt="Icono Notificaciones" class="w-16 h-16 rounded-2xl border border-brand-border shadow-neon shrink-0">
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-emerald-950 border border-emerald-800 text-emerald-300">
+                GOOGLE PLAY DIRECT URL
+              </span>
+            </div>
+            <h1 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight mt-1">
+              Historial de Notificaciones
+            </h1>
+            <p class="text-xs font-mono text-brand-neon mt-1">
+              Package ID: dev.ambiolabs.notificationlog
+            </p>
+          </div>
+        </div>
+
+        <button onclick="copyToClipboard(window.location.href, 'URL de la Política')" class="btn-terminal-action px-3.5 py-2 rounded-xl text-xs font-mono flex items-center gap-2 self-start sm:self-auto">
+          <svg class="w-4 h-4 text-brand-neon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+          </svg>
+          <span>Copiar URL para Play Console</span>
+        </button>
+      </div>
+
+      <!-- Compliance Box -->
+      <div class="p-5 rounded-2xl bg-[#06110C] border border-brand-neon/30 mb-8 flex items-start gap-3">
+        <svg class="w-5 h-5 text-brand-neon shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+        </svg>
+        <div class="text-xs text-slate-300 leading-relaxed">
+          <strong class="text-brand-neon">Declaración de Arquitectura Offline:</strong> Esta aplicación opera con una base de datos SQLite / Room estrictamente local en el dispositivo. Los registros de notificaciones generados por el servicio del sistema nunca son enviados a través de internet ni sincronizados con servidores externos de Ambio Labs.
+        </div>
+      </div>
+
+      <!-- Legal Sections -->
+      <div class="space-y-8 text-sm text-brand-muted leading-relaxed font-normal">
+        
+        <section class="space-y-2">
+          <h2 class="text-base sm:text-lg font-bold text-white tracking-tight">1. Propósito y Funcionamiento de la Aplicación</h2>
+          <p>
+            <strong>Historial de Notificaciones</strong> permite a los usuarios respaldar automáticamente en su dispositivo las alertas y notificaciones que el sistema Android muestra en pantalla, con el fin de consultar mensajes eliminados en aplicaciones de chat o rescatar alertas descartadas por error.
+          </p>
+        </section>
+
+        <section class="space-y-2">
+          <h2 class="text-base sm:text-lg font-bold text-white tracking-tight">2. Permiso Especial de Acceso a Notificaciones (NotificationListenerService)</h2>
+          <p>
+            La aplicación solicita de forma explícita la activación del servicio del sistema:
+          </p>
+          <div class="p-3 bg-black/60 rounded-xl border border-white/[0.08] font-mono text-xs text-brand-neon">
+            android.permission.BIND_NOTIFICATION_LISTENER_SERVICE
+          </div>
+          <p class="text-xs">
+            Al conceder dicho permiso:
+          </p>
+          <ul class="list-disc pl-5 space-y-1.5 text-xs">
+            <li>La app recibe el nombre del paquete emisor, título, contenido de texto, hora e icono de la notificación.</li>
+            <li><strong class="text-white">Almacenamiento 100% On-Device:</strong> Toda la información se guarda únicamente en la base de datos SQLite local dentro del almacenamiento interno protegido del teléfono.</li>
+            <li><strong class="text-white">Cero transmisiones remotas:</strong> Ambio Labs no cuenta con servidores de captura de notificaciones ni transfiere registros a internet.</li>
+          </ul>
+        </section>
+
+        <section class="space-y-2">
+          <h2 class="text-base sm:text-lg font-bold text-white tracking-tight">3. Retención y Eliminación de Datos</h2>
+          <p>
+            El usuario mantiene el control absoluto sobre sus registros:
+          </p>
+          <ul class="list-disc pl-5 space-y-1.5 text-xs">
+            <li>Puede vaciar el registro completo o borrar notificaciones individuales desde la interfaz de la app.</li>
+            <li>Puede revocar el permiso de notificación en cualquier momento desde <em>Ajustes de Android &gt; Acceso a notificaciones</em>.</li>
+            <li>Al desinstalar la app, el sistema operativo Android destruye de inmediato la base de datos local y todos los registros asociados.</li>
+          </ul>
+        </section>
+
+        <section class="space-y-2">
+          <h2 class="text-base sm:text-lg font-bold text-white tracking-tight">4. Publicidad de Terceros</h2>
+          <p>
+            Para financiar el desarrollo, la aplicación puede mostrar publicidad mediante Google AdMob. Google AdMob puede procesar identificadores anónimos de publicidad del dispositivo (GAID) conforme a la <a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener noreferrer" class="text-brand-neon underline">Política de Google</a>. El contenido de tus notificaciones jamás se comparte con redes publicitarias.
+          </p>
+        </section>
+
+        <section class="space-y-2">
+          <h2 class="text-base sm:text-lg font-bold text-white tracking-tight">5. Canal Oficial de Contacto</h2>
+          <p>
+            Para cualquier consulta sobre esta política, puedes contactarnos en:
+          </p>
+          <p class="font-mono text-xs text-brand-neon">
+            <a href="mailto:iam.ambiorix@gmail.com" class="underline hover:text-brand-neonLight">iam.ambiorix@gmail.com</a>
+          </p>
+        </section>
+
+      </div>
+
+      <!-- Action Back -->
+      <div class="mt-12 pt-6 border-t border-white/[0.08] flex flex-col sm:flex-row items-center justify-between gap-4">
+        <a href="index.html#apps" class="text-xs font-mono text-brand-muted hover:text-brand-neon transition-colors">
+          &larr; Volver al catálogo de aplicaciones
+        </a>
+        <a href="https://play.google.com/store/apps/details?id=dev.ambiolabs.notificationlog" 
+           target="_blank" 
+           rel="noopener noreferrer" 
+           class="btn-neon-cta px-5 py-2 rounded-xl text-xs uppercase tracking-wider font-bold">
+          Ficha en Google Play &rarr;
+        </a>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="border-t border-white/[0.08] bg-[#020504] py-8 mt-12 text-center text-xs text-brand-muted font-mono">
+    &copy; 2026 Ambio Labs. Todos los derechos reservados.
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>

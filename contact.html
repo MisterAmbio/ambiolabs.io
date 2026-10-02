@@ -3,124 +3,152 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contacto y Soporte | Ambio Labs</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="shortcut icon" href="logo.jpg" type="image/jpeg">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <title>Soporte Técnico y Contacto | Ambio Labs</title>
+  <meta name="description" content="Canal oficial de soporte técnico y contacto para desarrolladores de Ambio Labs. Asistencia para Giffix e Historial de Notificaciones.">
+  <link rel="icon" type="image/jpeg" href="logo.jpg">
   
+  <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
       theme: {
         extend: {
           fontFamily: {
-            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
             mono: ['"JetBrains Mono"', 'monospace'],
           },
           colors: {
             brand: {
-              black: '#040907',
-              dark: '#08140F',
-              card: '#0D2018',
-              border: '#16382B',
-              primary: '#10F5A1',
-              hover: '#05DF88',
-              muted: '#7E9B8F'
+              deep: '#030706',
+              surface: '#06110C',
+              card: 'rgba(10, 24, 18, 0.75)',
+              elevated: '#0C1E16',
+              neon: '#10F5A1',
+              neonLight: '#5FF7BC',
+              muted: '#809C91',
+              dim: '#4B6357',
+              border: 'rgba(22, 56, 43, 0.65)'
             }
-          },
-          boxShadow: {
-            'neon': '0 0 30px -5px rgba(16, 245, 161, 0.35)',
-            'neon-lg': '0 0 60px -10px rgba(16, 245, 161, 0.45)',
           }
         }
       }
     }
   </script>
-  <style>
-    .glass-card {
-      background: rgba(13, 32, 24, 0.65);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border: 1px solid rgba(22, 56, 43, 0.8);
-    }
-    .mesh-gradient {
-      background: radial-gradient(circle at 50% 20%, rgba(16, 245, 161, 0.12) 0%, rgba(4, 9, 7, 0) 65%);
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css">
 </head>
-<body class="bg-brand-black text-slate-100 font-sans min-h-screen flex flex-col selection:bg-brand-primary selection:text-brand-black relative overflow-x-hidden">
+<body class="bg-ambient-matrix text-slate-100 font-sans min-h-screen flex flex-col relative selection:bg-brand-neon selection:text-black overflow-x-hidden">
 
-  <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-[600px] mesh-gradient pointer-events-none -z-10"></div>
+  <div class="fixed inset-0 mesh-grid pointer-events-none -z-10 opacity-70"></div>
 
-  <!-- Barra de navegación -->
-  <nav class="max-w-6xl w-full mx-auto px-6 py-6 flex items-center justify-between border-b border-brand-border/40">
-    <a href="index.html" class="flex items-center gap-3">
-      <div class="relative w-10 h-10 rounded-full overflow-hidden p-[2px] bg-gradient-to-tr from-brand-primary to-emerald-900 shadow-neon">
-        <img src="logo.jpg" alt="Ambio Labs Logo" class="w-full h-full object-cover rounded-full bg-brand-dark">
-      </div>
-      <span class="font-bold text-lg tracking-tight text-white">Ambio<span class="text-brand-primary">Labs</span></span>
-    </a>
-    
-    <div class="flex items-center gap-6 text-sm">
-      <a href="index.html" class="text-xs font-mono text-brand-muted hover:text-brand-primary transition-colors">&larr; Volver al inicio</a>
-      <a href="https://play.google.com/store/apps/dev?id=5425741795870723879" target="_blank" rel="noopener" class="px-4 py-2 rounded-lg font-semibold text-xs tracking-wide uppercase bg-brand-primary text-brand-black hover:bg-brand-hover transition-all duration-200 shadow-neon hover:scale-[1.02] active:scale-[0.98]">
-        Google Play
+  <!-- Header -->
+  <header class="sticky top-0 z-50 w-full bg-[#030706]/85 backdrop-blur-xl border-b border-white/[0.06]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-3 group">
+        <div class="w-8 h-8 rounded-full overflow-hidden p-[1.5px] bg-gradient-to-tr from-brand-neon to-emerald-900 shadow-neon">
+          <img src="logo.jpg" alt="Logo Ambio Labs" class="w-full h-full object-cover rounded-full">
+        </div>
+        <span class="font-extrabold text-base text-white">Ambio<span class="text-brand-neon">Labs</span></span>
       </a>
+      <div class="flex items-center gap-4 text-xs font-mono">
+        <a href="index.html" class="text-brand-muted hover:text-white transition-colors">&larr; Inicio</a>
+        <a href="privacy.html" class="text-brand-muted hover:text-white transition-colors">Privacidad</a>
+      </div>
     </div>
-  </nav>
+  </header>
 
-  <!-- Contenedor Central de Contacto -->
-  <main class="max-w-xl mx-auto px-6 py-20 flex-1 w-full flex flex-col justify-center">
-    <div class="glass-card rounded-2xl p-8 sm:p-12 text-center relative overflow-hidden">
+  <!-- Main Content -->
+  <main class="max-w-3xl mx-auto px-4 sm:px-6 py-16 flex-1 w-full flex flex-col justify-center">
+    <div class="glass-panel-tech rounded-3xl p-6 sm:p-12 relative overflow-hidden">
       
-      <div class="w-14 h-14 rounded-2xl bg-brand-dark border border-brand-border flex items-center justify-center text-brand-primary mx-auto mb-6 shadow-neon">
+      <!-- Icon Emblem -->
+      <div class="w-14 h-14 rounded-2xl bg-[#06110C] border border-white/[0.08] flex items-center justify-center text-brand-neon mx-auto mb-6 shadow-neon">
         <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
         </svg>
       </div>
 
-      <h1 class="text-3xl font-extrabold text-white tracking-tight mb-3">Soporte Técnico</h1>
-      <p class="text-sm text-brand-muted mb-8 leading-relaxed">
-        Canal oficial de atención para reportes de errores, sugerencias de funciones o consultas de compatibilidad de utilidades de Ambio Labs.
-      </p>
-
-      <div class="p-4 bg-brand-dark/90 border border-brand-border rounded-xl flex flex-col sm:flex-row items-center justify-between gap-4 font-mono text-sm">
-        <span class="text-white text-xs sm:text-sm truncate">iam.ambiorix@gmail.com</span>
-        <a href="mailto:iam.ambiorix@gmail.com" class="w-full sm:w-auto px-5 py-2.5 bg-brand-primary text-brand-black font-semibold rounded-lg text-xs hover:bg-brand-hover transition-all duration-200 shadow-neon">
-          Enviar Correo
-        </a>
+      <div class="text-center mb-8">
+        <span class="text-xs font-mono text-brand-neon uppercase tracking-widest">ATENCIÓN AL USUARIO</span>
+        <h1 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mt-1">Soporte Técnico Oficial</h1>
+        <p class="text-sm text-brand-muted mt-2 max-w-lg mx-auto leading-relaxed">
+          Canal directo para reportar incidencias técnicas, sugerir mejoras funcionales o resolver dudas de compatibilidad en dispositivos Android.
+        </p>
       </div>
 
-      <div class="mt-8 pt-6 border-t border-brand-border/40 text-left text-xs text-brand-muted space-y-2">
-        <p class="flex items-center gap-2">
-          <span class="w-1.5 h-1.5 rounded-full bg-brand-primary"></span>
-          Respuesta técnica habitual: 24 a 48 horas laborables.
-        </p>
-        <p class="flex items-center gap-2">
+      <!-- Email Action Box -->
+      <div class="p-5 bg-[#030706] rounded-2xl border border-white/[0.08] flex flex-col sm:flex-row items-center justify-between gap-4 mb-8">
+        <div class="flex items-center gap-3">
+          <div class="w-2.5 h-2.5 rounded-full bg-brand-neon animate-pulse"></div>
+          <div>
+            <p class="text-[11px] font-mono text-brand-dim uppercase">Correo Electrónico Oficial</p>
+            <span class="text-white text-sm sm:text-base font-mono font-bold select-all">
+              iam.ambiorix@gmail.com
+            </span>
+          </div>
+        </div>
+        <div class="flex items-center gap-2 w-full sm:w-auto">
+          <button onclick="copyToClipboard('iam.ambiorix@gmail.com', 'Correo')" 
+                  title="Copiar email"
+                  class="btn-terminal-action px-3.5 py-2 rounded-xl text-xs font-mono flex items-center justify-center gap-1.5 w-full sm:w-auto">
+            <svg class="w-4 h-4 text-brand-neon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+            </svg>
+            <span>Copiar</span>
+          </button>
+          <a href="mailto:iam.ambiorix@gmail.com?subject=[Soporte%20Android]%20Consulta" 
+             class="btn-neon-cta px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-1.5 w-full sm:w-auto">
+            <span>Escribir</span>
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Bug template fast buttons -->
+      <div class="p-4 rounded-2xl bg-[#06110C] border border-white/[0.06] mb-8 space-y-2">
+        <div class="text-xs font-mono text-brand-neon uppercase">Generar Plantilla de Fallo al Portapapeles:</div>
+        <div class="flex gap-2">
+          <button onclick="copyBugTemplate('Giffix')" class="btn-terminal-action flex-1 py-2 rounded-xl text-xs font-mono text-center">
+            Copiar Formato Giffix
+          </button>
+          <button onclick="copyBugTemplate('NotifLog')" class="btn-terminal-action flex-1 py-2 rounded-xl text-xs font-mono text-center">
+            Copiar Formato Notif Log
+          </button>
+        </div>
+      </div>
+
+      <!-- Guidelines for bug reports -->
+      <div class="border-t border-white/[0.08] pt-6 space-y-4 text-xs text-brand-muted">
+        <h3 class="text-white font-semibold text-sm">¿Cómo reportar un error de forma efectiva?</h3>
+        <ul class="list-disc pl-5 space-y-1.5 font-normal">
+          <li><strong>Nombre o Package de la app:</strong> <span class="font-mono text-brand-neon">dev.ambiolabs.sticker</span> o <span class="font-mono text-brand-neon">dev.ambiolabs.notificationlog</span>.</li>
+          <li><strong>Modelo de dispositivo:</strong> Fabricante y modelo (ej. Pixel 8, Galaxy S23).</li>
+          <li><strong>Versión de Android:</strong> (Android 13, 14, 15, etc.).</li>
+          <li><strong>Pasos para reproducir:</strong> Qué acción provocó el cierre inesperado o problema.</li>
+        </ul>
+        <div class="pt-4 flex items-center gap-2 text-brand-dim font-mono text-[11px]">
           <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
-          Incluye el modelo de dispositivo y versión de Android para reportar fallos.
-        </p>
+          <span>Tiempo estimado de respuesta técnica: 24 a 48 horas laborables.</span>
+        </div>
+      </div>
+
+      <!-- Back Action -->
+      <div class="mt-8 pt-6 border-t border-white/[0.08] flex items-center justify-between">
+        <a href="index.html" class="text-xs font-mono text-brand-muted hover:text-brand-neon transition-colors">
+          &larr; Volver al inicio
+        </a>
+        <a href="https://play.google.com/store/apps/dev?id=5425741795870723879" target="_blank" rel="noopener noreferrer" class="text-xs font-mono text-brand-neon hover:underline">
+          Google Play Developer Profile &rarr;
+        </a>
       </div>
 
     </div>
   </main>
 
-  <!-- Footer Legal -->
-  <footer class="border-t border-brand-border/60 bg-brand-dark/40 py-10 mt-16">
-    <div class="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-6 text-xs text-brand-muted">
-      <div class="flex items-center gap-3">
-        <span class="font-bold text-white">Ambio Labs</span>
-        <span>•</span>
-        <span>&copy; 2026 Todos los derechos reservados.</span>
-      </div>
-      <div class="flex items-center gap-6">
-        <a href="privacy.html" class="hover:text-brand-primary transition-colors">Política de Privacidad</a>
-        <a href="terms.html" class="hover:text-brand-primary transition-colors">Términos de Servicio</a>
-        <a href="contact.html" class="text-brand-primary font-medium">Contacto</a>
-      </div>
-    </div>
+  <footer class="border-t border-white/[0.08] bg-[#020504] py-8 mt-12 text-center text-xs text-brand-muted font-mono">
+    &copy; 2026 Ambio Labs. Todos los derechos reservados.
   </footer>
 
+  <script src="main.js"></script>
 </body>
 </html>

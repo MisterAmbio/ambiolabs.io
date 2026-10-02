@@ -1,0 +1,250 @@
+/* ==========================================================================
+   AMBIO LABS — BESPOKE DESIGN SYSTEM & COMPONENT ARCHITECTURE
+   High-precision, technical, and editorial aesthetic for Android Developer Hub.
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+:root {
+  --bg-deep: #030706;
+  --bg-surface: #06110C;
+  --bg-card: rgba(10, 24, 18, 0.75);
+  --bg-card-hover: rgba(14, 34, 25, 0.85);
+  --bg-elevated: #0C1E16;
+  
+  --border-dim: rgba(255, 255, 255, 0.06);
+  --border-subtle: rgba(22, 56, 43, 0.65);
+  --border-neon: rgba(16, 245, 161, 0.35);
+  --border-neon-strong: rgba(16, 245, 161, 0.8);
+  
+  --brand-neon: #10F5A1;
+  --brand-neon-light: #5FF7BC;
+  --brand-hover: #05DF88;
+  --brand-active: #04C779;
+  --brand-glow: rgba(16, 245, 161, 0.3);
+  --brand-muted: #809C91;
+  --brand-dim: #4B6357;
+  
+  --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Base resets & typography */
+html {
+  background-color: var(--bg-deep);
+  color: #F8FAFC;
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code, kbd, samp, pre, .font-mono {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+}
+
+::selection {
+  background-color: var(--brand-neon);
+  color: var(--bg-deep);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-deep);
+}
+::-webkit-scrollbar-thumb {
+  background: #133327;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--brand-dim);
+}
+
+/* Background Grids & Ambient Lights */
+.bg-ambient-matrix {
+  background-color: var(--bg-deep);
+  background-image: 
+    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(16, 245, 161, 0.13) 0%, transparent 60%),
+    radial-gradient(circle 600px at 90% 40%, rgba(5, 223, 136, 0.05) 0%, transparent 60%),
+    radial-gradient(circle 500px at 10% 70%, rgba(16, 245, 161, 0.04) 0%, transparent 50%);
+}
+
+.mesh-grid {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(22, 56, 43, 0.22) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(22, 56, 43, 0.22) 1px, transparent 1px);
+  mask-image: radial-gradient(ellipse 70% 60% at 50% 30%, black 30%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 30%, black 30%, transparent 100%);
+}
+
+/* Glass Panels with Gradient Borders */
+.glass-panel-tech {
+  background: var(--bg-card);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--border-subtle);
+  box-shadow: 0 20px 50px -15px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255, 255, 255, 0.03) inset;
+  transition: all 0.3s var(--ease-spring);
+}
+.glass-panel-tech:hover {
+  border-color: var(--border-neon);
+  box-shadow: 0 24px 60px -15px rgba(0, 0, 0, 0.85), 0 0 30px -5px rgba(16, 245, 161, 0.15), 0 0 0 1px rgba(16, 245, 161, 0.2) inset;
+}
+
+/* Interactive Device Simulator Mockup */
+.device-frame {
+  position: relative;
+  width: 100%;
+  max-width: 380px;
+  height: 560px;
+  background: #020504;
+  border-radius: 44px;
+  border: 3px solid rgba(22, 56, 43, 0.8);
+  box-shadow: 
+    0 0 0 1px rgba(16, 245, 161, 0.25),
+    0 25px 60px -10px rgba(0, 0, 0, 0.9),
+    0 0 40px -5px rgba(16, 245, 161, 0.2);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.device-notch {
+  width: 90px;
+  height: 20px;
+  background: #020504;
+  border-bottom-left-radius: 14px;
+  border-bottom-right-radius: 14px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  z-index: 20;
+}
+.device-camera {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #0c1a14;
+  border: 1px solid rgba(16, 245, 161, 0.3);
+}
+
+.device-screen {
+  flex: 1;
+  background: #050c08;
+  padding: 16px;
+  overflow-y: auto;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Tactile Buttons */
+.btn-neon-cta {
+  background-color: var(--brand-neon);
+  color: #030706;
+  font-weight: 700;
+  transition: all 0.2s var(--ease-spring);
+  box-shadow: 0 0 25px -4px rgba(16, 245, 161, 0.45);
+}
+.btn-neon-cta:hover {
+  background-color: var(--brand-neon-light);
+  transform: translateY(-2px);
+  box-shadow: 0 0 35px -2px rgba(16, 245, 161, 0.65);
+}
+.btn-neon-cta:active {
+  transform: scale(0.97);
+  background-color: var(--brand-active);
+}
+
+.btn-terminal-action {
+  background: rgba(10, 24, 18, 0.85);
+  color: #F8FAFC;
+  border: 1px solid var(--border-subtle);
+  transition: all 0.2s var(--ease-spring);
+}
+.btn-terminal-action:hover {
+  background: rgba(16, 40, 30, 0.95);
+  border-color: var(--border-neon);
+  color: var(--brand-neon);
+  transform: translateY(-1px);
+}
+.btn-terminal-action:active {
+  transform: scale(0.97);
+}
+
+/* Copy chip */
+.copy-chip {
+  cursor: pointer;
+  transition: all 0.2s var(--ease-spring);
+}
+.copy-chip:hover {
+  border-color: var(--brand-neon);
+  background: rgba(16, 245, 161, 0.12);
+}
+.copy-chip:active {
+  transform: scale(0.96);
+}
+
+/* Horizontal Ticker / Spec Tape */
+.spec-ticker {
+  background: rgba(6, 17, 12, 0.8);
+  border-top: 1px solid var(--border-dim);
+  border-bottom: 1px solid var(--border-dim);
+}
+
+/* Animated Floating Elements */
+@keyframes floatGentle {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
+}
+.animate-float-gentle {
+  animation: floatGentle 4s ease-in-out infinite;
+}
+
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(1.05); }
+}
+.animate-pulse-glow {
+  animation: pulseGlow 3s ease-in-out infinite;
+}
+
+/* Toast alert notification */
+#toast-notification {
+  transform: translateY(100px);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s var(--ease-spring);
+}
+#toast-notification.show {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Screenshot scroller */
+.screenshot-scroller {
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-subtle) transparent;
+  scroll-snap-type: x mandatory;
+}
+.screenshot-scroller > * {
+  scroll-snap-align: start;
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

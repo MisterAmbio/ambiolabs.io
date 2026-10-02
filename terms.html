@@ -4,131 +4,131 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Términos de Servicio | Ambio Labs</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="shortcut icon" href="logo.jpg" type="image/jpeg">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <meta name="description" content="Términos y condiciones oficiales de uso para las aplicaciones Android de Ambio Labs.">
+  <link rel="icon" type="image/jpeg" href="logo.jpg">
   
+  <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
       theme: {
         extend: {
           fontFamily: {
-            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
             mono: ['"JetBrains Mono"', 'monospace'],
           },
           colors: {
             brand: {
-              black: '#040907',
-              dark: '#08140F',
-              card: '#0D2018',
-              border: '#16382B',
-              primary: '#10F5A1',
-              hover: '#05DF88',
-              muted: '#7E9B8F'
+              deep: '#030706',
+              surface: '#06110C',
+              card: 'rgba(10, 24, 18, 0.75)',
+              elevated: '#0C1E16',
+              neon: '#10F5A1',
+              neonLight: '#5FF7BC',
+              muted: '#809C91',
+              dim: '#4B6357',
+              border: 'rgba(22, 56, 43, 0.65)'
             }
-          },
-          boxShadow: {
-            'neon': '0 0 30px -5px rgba(16, 245, 161, 0.35)',
-            'neon-lg': '0 0 60px -10px rgba(16, 245, 161, 0.45)',
           }
         }
       }
     }
   </script>
-  <style>
-    .glass-card {
-      background: rgba(13, 32, 24, 0.65);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border: 1px solid rgba(22, 56, 43, 0.8);
-    }
-    .mesh-gradient {
-      background: radial-gradient(circle at 50% 20%, rgba(16, 245, 161, 0.12) 0%, rgba(4, 9, 7, 0) 65%);
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css">
 </head>
-<body class="bg-brand-black text-slate-100 font-sans min-h-screen flex flex-col selection:bg-brand-primary selection:text-brand-black relative overflow-x-hidden">
+<body class="bg-ambient-matrix text-slate-100 font-sans min-h-screen flex flex-col relative selection:bg-brand-neon selection:text-black overflow-x-hidden">
 
-  <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-[600px] mesh-gradient pointer-events-none -z-10"></div>
+  <div class="fixed inset-0 mesh-grid pointer-events-none -z-10 opacity-70"></div>
 
-  <!-- Barra de navegación -->
-  <nav class="max-w-6xl w-full mx-auto px-6 py-6 flex items-center justify-between border-b border-brand-border/40">
-    <a href="index.html" class="flex items-center gap-3">
-      <div class="relative w-10 h-10 rounded-full overflow-hidden p-[2px] bg-gradient-to-tr from-brand-primary to-emerald-900 shadow-neon">
-        <img src="logo.jpg" alt="Ambio Labs Logo" class="w-full h-full object-cover rounded-full bg-brand-dark">
-      </div>
-      <span class="font-bold text-lg tracking-tight text-white">Ambio<span class="text-brand-primary">Labs</span></span>
-    </a>
-    
-    <div class="flex items-center gap-6 text-sm">
-      <a href="index.html" class="text-xs font-mono text-brand-muted hover:text-brand-primary transition-colors">&larr; Volver al inicio</a>
-      <a href="https://play.google.com/store/apps/dev?id=5425741795870723879" target="_blank" rel="noopener" class="px-4 py-2 rounded-lg font-semibold text-xs tracking-wide uppercase bg-brand-primary text-brand-black hover:bg-brand-hover transition-all duration-200 shadow-neon hover:scale-[1.02] active:scale-[0.98]">
-        Google Play
+  <!-- Header -->
+  <header class="sticky top-0 z-50 w-full bg-[#030706]/85 backdrop-blur-xl border-b border-white/[0.06]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-3 group">
+        <div class="w-8 h-8 rounded-full overflow-hidden p-[1.5px] bg-gradient-to-tr from-brand-neon to-emerald-900 shadow-neon">
+          <img src="logo.jpg" alt="Logo Ambio Labs" class="w-full h-full object-cover rounded-full">
+        </div>
+        <span class="font-extrabold text-base text-white">Ambio<span class="text-brand-neon">Labs</span></span>
       </a>
+      <div class="flex items-center gap-4 text-xs font-mono">
+        <a href="index.html" class="text-brand-muted hover:text-white transition-colors">&larr; Inicio</a>
+        <a href="privacy.html" class="text-brand-muted hover:text-white transition-colors">Privacidad</a>
+        <a href="contact.html" class="text-brand-muted hover:text-brand-neon transition-colors">Soporte</a>
+      </div>
     </div>
-  </nav>
+  </header>
 
-  <!-- Contenido Legal -->
-  <main class="max-w-4xl mx-auto px-6 py-16 flex-1 w-full">
-    <div class="glass-card rounded-2xl p-8 sm:p-12 space-y-8">
+  <!-- Main Content -->
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 py-16 flex-1 w-full">
+    <div class="glass-panel-tech rounded-3xl p-6 sm:p-12 relative overflow-hidden">
       
-      <div class="border-b border-brand-border/60 pb-6">
-        <h1 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">Términos de Servicio</h1>
-        <p class="text-xs font-mono text-brand-primary mt-2">Vigencia: Septiembre 2026</p>
+      <!-- Title -->
+      <div class="border-b border-white/[0.08] pb-8 mb-8">
+        <div class="inline-flex items-center gap-2 text-xs font-mono text-brand-neon uppercase tracking-widest mb-2">
+          <span>CONDICIONES DE USO</span>
+        </div>
+        <h1 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
+          Términos de Servicio
+        </h1>
+        <p class="text-xs font-mono text-brand-muted mt-2">
+          Vigencia: Octubre 2026 • Desarrollador: Ambio Labs
+        </p>
       </div>
 
-      <div class="space-y-6 text-sm leading-relaxed text-brand-muted font-normal">
-        <p>Al descargar, instalar o utilizar cualquier software o aplicación móvil desarrollada bajo la firma de <strong class="text-white font-semibold">Ambio Labs</strong>, aceptas someterte a estos Términos de Servicio. Si no estás de acuerdo con alguno de ellos, debes desinstalar la aplicación de inmediato.</p>
+      <!-- Legal Text -->
+      <div class="space-y-8 text-sm text-brand-muted leading-relaxed font-normal">
+        <p>
+          Al descargar o utilizar las aplicaciones desarrolladas por <strong class="text-white font-semibold">Ambio Labs</strong> a través de Google Play Store, aceptas estos términos y condiciones.
+        </p>
 
         <section class="space-y-2">
-          <h2 class="text-lg font-bold text-white tracking-tight">1. Concesión de Licencia</h2>
-          <p>Ambio Labs te otorga una licencia personal, limitada, no transferible, no sublicenciable y revocable para utilizar el software exclusivamente para fines personales y no comerciales en dispositivos Android de tu propiedad o control.</p>
-        </section>
-
-        <section class="space-y-2">
-          <h2 class="text-lg font-bold text-white tracking-tight">2. Restricciones de Uso</h2>
-          <p>Queda expresamente prohibido descompilar, realizar ingeniería inversa, desensamblar, modificar, crear obras derivadas o intentar extraer el código fuente de los binarios distribuidos por Ambio Labs, salvo en los casos en que la legislación aplicable prohíba expresamente tales restricciones.</p>
-        </section>
-
-        <section class="space-y-2">
-          <h2 class="text-lg font-bold text-white tracking-tight">3. Exención de Responsabilidad Técnica y Financiera</h2>
-          <p>Nuestras aplicaciones se suministran estrictamente <strong class="text-white">"TAL CUAL" (*AS IS*) y "SEGÚN DISPONIBILIDAD"</strong>, sin garantías de ningún tipo, ya sean expresas o implícitas. Ambio Labs no garantiza que las operaciones matemáticas, conversiones o simulaciones financieras sean 100% exactas o estén libres de errores.</p>
-          <p class="text-xs text-brand-muted/90 bg-brand-dark/60 p-4 rounded-xl border border-brand-border">
-            <strong class="text-white">Aviso Importante:</strong> Ambio Labs no es una institución financiera, contable ni asesora legal. El usuario asume toda la responsabilidad por las decisiones tomadas en base a los resultados de las herramientas de cálculo o conversión.
+          <h2 class="text-base sm:text-lg font-bold text-white tracking-tight">1. Licencia de Uso</h2>
+          <p>
+            Ambio Labs concede una licencia personal, no transferible y revocable para utilizar nuestras utilidades en dispositivos Android de tu propiedad o control, exclusivamente para fines personales y no comerciales.
           </p>
         </section>
 
         <section class="space-y-2">
-          <h2 class="text-lg font-bold text-white tracking-tight">4. Redes de Publicidad y Terceros</h2>
-          <p>Nuestras herramientas pueden contener enlaces a servicios o mostrar publicidad provista por terceros (Google AdMob). Ambio Labs no tiene control ni asume responsabilidad por las políticas, contenidos o prácticas de servicios externos vinculados.</p>
+          <h2 class="text-base sm:text-lg font-bold text-white tracking-tight">2. Restricciones</h2>
+          <p>
+            Queda prohibido descompilar, realizar ingeniería inversa o extraer el código fuente de los binarios distribuidos por Ambio Labs, salvo en los casos en que la ley aplicable no lo permita.
+          </p>
         </section>
 
         <section class="space-y-2">
-          <h2 class="text-lg font-bold text-white tracking-tight">5. Actualizaciones y Modificaciones</h2>
-          <p>Nos reservamos el derecho de modificar, actualizar o discontinuar cualquier aplicación o función en cualquier momento sin previa notificación ni responsabilidad hacia los usuarios.</p>
+          <h2 class="text-base sm:text-lg font-bold text-white tracking-tight">3. Exención de Responsabilidad Técnica</h2>
+          <p>
+            Nuestras herramientas se proporcionan <strong class="text-white">"TAL CUAL" (*AS IS*)</strong> sin garantías sobre resultados específicos. Ambio Labs no garantiza la recuperación de notificaciones si el sistema Android no generó la alerta correspondiente o si el fabricante cierra el servicio en segundo plano por optimización extrema de batería.
+          </p>
         </section>
+
+        <section class="space-y-2">
+          <h2 class="text-base sm:text-lg font-bold text-white tracking-tight">4. Contacto Legal</h2>
+          <p>
+            Para consultas relacionadas con estos términos:
+          </p>
+          <p class="font-mono text-xs text-brand-neon">
+            <a href="mailto:iam.ambiorix@gmail.com" class="underline hover:text-brand-neonLight">iam.ambiorix@gmail.com</a>
+          </p>
+        </section>
+
+      </div>
+
+      <!-- Action Back -->
+      <div class="mt-12 pt-6 border-t border-white/[0.08] flex items-center justify-between">
+        <a href="index.html" class="text-xs font-mono text-brand-muted hover:text-brand-neon transition-colors">
+          &larr; Volver al inicio
+        </a>
+        <a href="privacy.html" class="text-xs font-mono text-brand-neon hover:underline">
+          Políticas de Privacidad &rarr;
+        </a>
       </div>
 
     </div>
   </main>
 
-  <!-- Footer Legal -->
-  <footer class="border-t border-brand-border/60 bg-brand-dark/40 py-10 mt-16">
-    <div class="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-6 text-xs text-brand-muted">
-      <div class="flex items-center gap-3">
-        <span class="font-bold text-white">Ambio Labs</span>
-        <span>•</span>
-        <span>&copy; 2026 Todos los derechos reservados.</span>
-      </div>
-      <div class="flex items-center gap-6">
-        <a href="privacy.html" class="hover:text-brand-primary transition-colors">Política de Privacidad</a>
-        <a href="terms.html" class="text-brand-primary font-medium">Términos de Servicio</a>
-        <a href="contact.html" class="hover:text-brand-primary transition-colors">Contacto</a>
-      </div>
-    </div>
+  <footer class="border-t border-white/[0.08] bg-[#020504] py-8 mt-12 text-center text-xs text-brand-muted font-mono">
+    &copy; 2026 Ambio Labs. Todos los derechos reservados.
   </footer>
 
+  <script src="main.js"></script>
 </body>
 </html>
