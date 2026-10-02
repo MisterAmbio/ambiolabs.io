@@ -1,237 +1,616 @@
 <!DOCTYPE html>
 <html lang="es" class="scroll-smooth">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ambio Labs | Android Micro-Utilities</title>
+
+  <!-- SEO & Social Meta -->
+  <title>Ambio Labs — Android Native Micro-Utilities & Developer Hub</title>
+  <meta name="description"
+    content="Estudio de desarrollo de utilidades Android nativas. Arquitectura 100% on-device, cero telemetría y rendimiento extremo. Publicado en Google Play Console.">
+  <meta name="keywords"
+    content="Ambio Labs, Giffix, Historial de Notificaciones, Android Developer, Google Play, Kotlin, Jetpack Compose, Privacy by Design">
+  <meta name="author" content="Ambio Labs">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ambiolabs.io/">
+  <meta property="og:title" content="Ambio Labs — Android Native Micro-Utilities">
+  <meta property="og:description"
+    content="Herramientas nativas para Android diseñadas con precisión arquitectónica: 100% offline, cero anuncios invasivos y privacidad por diseño.">
+  <meta property="og:image" content="logo.jpg">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/jpeg" href="logo.jpg">
+  <link rel="apple-touch-icon" href="logo.jpg">
+
+  <!-- Tailwind CSS (Standalone Engine) -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="shortcut icon" href="logo.jpg" type="image/x-icon">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
-  
   <script>
     tailwind.config = {
       theme: {
         extend: {
           fontFamily: {
-            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
             mono: ['"JetBrains Mono"', 'monospace'],
           },
           colors: {
             brand: {
-              black: '#040907',
-              dark: '#08140F',
-              card: '#0D2018',
-              border: '#16382B',
-              primary: '#10F5A1',
+              deep: '#030706',
+              surface: '#06110C',
+              card: 'rgba(10, 24, 18, 0.75)',
+              elevated: '#0C1E16',
+              neon: '#10F5A1',
+              neonLight: '#5FF7BC',
               hover: '#05DF88',
-              muted: '#7E9B8F'
+              muted: '#809C91',
+              dim: '#4B6357',
+              border: 'rgba(22, 56, 43, 0.65)'
             }
-          },
-          boxShadow: {
-            'neon': '0 0 30px -5px rgba(16, 245, 161, 0.35)',
-            'neon-lg': '0 0 60px -10px rgba(16, 245, 161, 0.45)',
           }
         }
       }
     }
   </script>
-  <style>
-    .glass-card {
-      background: rgba(13, 32, 24, 0.65);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border: 1px solid rgba(22, 56, 43, 0.8);
-    }
-    .mesh-gradient {
-      background: radial-gradient(circle at 50% 20%, rgba(16, 245, 161, 0.12) 0%, rgba(4, 9, 7, 0) 65%);
-    }
-  </style>
+
+  <!-- Custom Design System Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
 </head>
-<body class="bg-brand-black text-slate-100 font-sans min-h-screen flex flex-col selection:bg-brand-primary selection:text-brand-black relative overflow-x-hidden">
 
-  <!-- Glow superior detrás del hero -->
-  <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-[600px] mesh-gradient pointer-events-none -z-10"></div>
+<body
+  class="bg-ambient-matrix text-slate-100 font-sans min-h-screen flex flex-col relative selection:bg-brand-neon selection:text-black overflow-x-hidden">
 
-  <!-- Barra de navegación -->
-  <nav class="max-w-6xl w-full mx-auto px-6 py-6 flex items-center justify-between border-b border-brand-border/40">
-    <div class="flex items-center gap-3">
-      <div class="relative w-10 h-10 rounded-full overflow-hidden p-[2px] bg-gradient-to-tr from-brand-primary to-emerald-900 shadow-neon">
-        <img src="logo.jpg" alt="Ambio Labs Logo" class="w-full h-full object-cover rounded-full bg-brand-dark">
-      </div>
-      <span class="font-bold text-lg tracking-tight text-white">Ambio<span class="text-brand-primary"> Labs</span></span>
-    </div>
-    <!---->
-    <div class="flex items-center gap-6 text-sm">
-      <!--<a href="#apps" class="text-brand-muted hover:text-white transition-colors">Apps</a> -->
-      <a href="https://play.google.com/store/apps/dev?id=5425741795870723879" target="_blank" rel="noopener" class="px-4 py-2 rounded-lg font-semibold text-xs tracking-wide uppercase bg-brand-primary text-brand-black hover:bg-brand-hover transition-all duration-200 shadow-neon hover:scale-[1.02] active:scale-[0.98]">
-        Google Play
+  <!-- Subtle Mesh Grid Pattern -->
+  <div class="fixed inset-0 mesh-grid pointer-events-none -z-10 opacity-70"></div>
+
+  <!-- =========================================================================
+       HEADER / NAVBAR (Technical Studio Console Bar)
+       ========================================================================= -->
+  <header class="sticky top-0 z-50 w-full bg-[#030706]/85 backdrop-blur-xl border-b border-white/[0.06]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+
+      <!-- Studio Identity -->
+      <a href="index.html" class="flex items-center gap-3 group">
+        <div
+          class="relative w-8 h-8 rounded-full overflow-hidden p-[1.5px] bg-gradient-to-tr from-brand-neon via-emerald-600 to-transparent shadow-[0_0_15px_rgba(16,245,161,0.3)] group-hover:scale-105 transition-transform duration-200">
+          <img src="logo.jpg" alt="Ambio Labs Emblem" class="w-full h-full object-cover rounded-full bg-black">
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="font-extrabold text-base tracking-tight text-white">Ambio<span
+              class="text-brand-neon">Labs</span></span>
+          <span
+            class="hidden sm:inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-[10px] font-mono text-emerald-400 bg-emerald-950/60 border border-emerald-800/80">
+            <span class="w-1.5 h-1.5 rounded-full bg-brand-neon animate-pulse"></span>
+            CONSOLE v2.4
+          </span>
+        </div>
       </a>
+
+      <!-- Segmented Navigation Pills -->
+      <nav
+        class="hidden md:flex items-center gap-1 p-1 rounded-full bg-[#06110C]/80 border border-white/[0.06] text-xs font-medium">
+        <a href="#apps"
+          class="px-4 py-1.5 rounded-full text-brand-muted hover:text-white hover:bg-white/[0.04] transition-all">
+          <span class="font-mono text-brand-neon mr-1">01</span> Aplicaciones
+        </a>
+        <a href="#about"
+          class="px-4 py-1.5 rounded-full text-brand-muted hover:text-white hover:bg-white/[0.04] transition-all">
+          <span class="font-mono text-brand-neon mr-1">02</span> Arquitectura
+        </a>
+        <a href="privacy.html"
+          class="px-4 py-1.5 rounded-full text-brand-muted hover:text-white hover:bg-white/[0.04] transition-all">
+          <span class="font-mono text-brand-neon mr-1">03</span> Privacidad
+        </a>
+        <a href="#contact"
+          class="px-4 py-1.5 rounded-full text-brand-muted hover:text-white hover:bg-white/[0.04] transition-all">
+          <span class="font-mono text-brand-neon mr-1">04</span> Soporte
+        </a>
+      </nav>
+
+      <!-- Google Play Verified Hub Button -->
+      <div class="hidden sm:flex items-center gap-3">
+        <a href="https://play.google.com/store/apps/dev?id=5425741795870723879" target="_blank"
+          rel="noopener noreferrer"
+          class="btn-neon-cta px-4 py-2 rounded-xl text-xs uppercase tracking-wider flex items-center gap-2">
+          <svg class="w-4 h-4 fill-current shrink-0" viewBox="0 0 24 24">
+            <path
+              d="M3.609 1.814L13.792 12 3.61 22.186a1.996 1.996 0 0 1-.61-1.442V3.256c0-.555.228-1.059.609-1.442zm11.233 11.234l2.482 2.482-11.83 6.84 9.348-9.322zm2.482-2.096l-2.482 2.482L5.494 4.112l11.83 6.84zm1.05 1.05l2.67 1.545c.98.567.98 1.488 0 2.055l-2.67 1.545-2.072-2.572 2.072-2.573z" />
+          </svg>
+          <span>Google Play</span>
+        </a>
+      </div>
+
+      <!-- Mobile Menu Toggle -->
+      <button id="mobile-menu-toggle" aria-label="Abrir menú"
+        class="md:hidden p-2 rounded-lg text-brand-muted hover:text-white border border-white/[0.08]">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+
     </div>
-  </nav>
 
-  <!-- Hero Section -->
-  <header class="max-w-4xl mx-auto px-6 pt-20 pb-16 text-center flex flex-col items-center">
-    
-    <!-- Avatar con halo dinámico -->
-    <div class="relative mb-8 group">
-      <div class="absolute inset-0 rounded-full bg-brand-primary/20 blur-2xl group-hover:blur-3xl transition-all duration-500"></div>
-      <div class="relative w-36 h-36 rounded-full p-1 bg-gradient-to-b from-brand-primary/80 via-emerald-800 to-transparent shadow-neon-lg">
-        <img src="logo.jpg" alt="Ambio Mascot" class="w-full h-full object-cover rounded-full bg-brand-dark">
-      </div>
-      <div class="absolute -bottom-2 left-1/2 -translate-x-1/2 px-3 py-1 bg-brand-card border border-brand-border rounded-full text-[11px] font-mono font-medium text-brand-primary tracking-widest uppercase">
-        v2.0 Deploy
+    <!-- Mobile Drawer -->
+    <div id="mobile-menu"
+      class="hidden md:hidden border-b border-white/[0.08] bg-[#06110C]/95 backdrop-blur-xl px-6 py-4 space-y-3">
+      <a href="#apps" class="block py-2 text-sm text-brand-muted hover:text-white">01. Aplicaciones</a>
+      <a href="#about" class="block py-2 text-sm text-brand-muted hover:text-white">02. Arquitectura</a>
+      <a href="privacy.html" class="block py-2 text-sm text-brand-muted hover:text-white">03. Privacidad & Legal</a>
+      <a href="#contact" class="block py-2 text-sm text-brand-muted hover:text-white">04. Soporte Oficial</a>
+      <div class="pt-2">
+        <a href="https://play.google.com/store/apps/dev?id=5425741795870723879" target="_blank"
+          rel="noopener noreferrer" class="btn-neon-cta w-full text-center py-2.5 rounded-xl text-xs block">
+          Ver Perfil en Google Play
+        </a>
       </div>
     </div>
-
-    <!-- Títulos -->
-    <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight text-white mb-5 leading-tight">
-      Herramientas rápidas.<br>
-      <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-primary to-emerald-400">Cero complicaciones.</span>
-    </h1>
-    
-    <p class="text-base sm:text-lg text-brand-muted max-w-xl mb-10 leading-relaxed font-normal">
-      Micro-utilidades para Android diseñadas para resolver tareas puntuales al instante: ligeras, offline y sin consumo excesivo de batería.
-    </p>
-
-    <!-- Métricas rápidas / Badges -->
-    <div class="grid grid-cols-3 gap-3 sm:gap-6 w-full max-w-lg mb-12">
-      <div class="glass-card p-3 sm:p-4 rounded-xl text-center">
-        <p class="text-lg sm:text-xl font-bold text-white font-mono">&lt; 100 MB</p>
-        <p class="text-xs text-brand-muted mt-0.5">Ultraligeras</p>
-      </div>
-      <div class="glass-card p-3 sm:p-4 rounded-xl text-center">
-        <p class="text-lg sm:text-xl font-bold text-brand-primary font-mono">100%</p>
-        <p class="text-xs text-brand-muted mt-0.5">Offline-Ready</p>
-      </div>
-      <div class="glass-card p-3 sm:p-4 rounded-xl text-center">
-        <p class="text-lg sm:text-xl font-bold text-white font-mono">0 ms</p>
-        <p class="text-xs text-brand-muted mt-0.5">Sin latencia</p>
-      </div>
-    </div>
-
   </header>
 
-  <!-- Catálogo de Apps 
-  <section id="apps" class="max-w-5xl mx-auto px-6 py-12 w-full flex-1">
-    <div class="flex items-center justify-between mb-8">
-      <div>
-        <h2 class="text-2xl font-bold text-white tracking-tight">Catálogo de Utilidades</h2>
-        <p class="text-sm text-brand-muted mt-1">Herramientas nativas mantenidas bajo el sello Ambio Labs.</p>
-      </div>
-      <span class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono text-emerald-400 bg-emerald-950/40 border border-emerald-800/60">
-        <span class="w-1.5 h-1.5 rounded-full bg-brand-primary animate-pulse"></span> Sistema Activo
+  <!-- =========================================================================
+       HERO SECTION (High-Impact Editorial Presentation)
+       ========================================================================= -->
+  <section class="max-w-5xl mx-auto px-4 sm:px-6 pt-16 sm:pt-24 pb-16 w-full text-center flex flex-col items-center">
+
+    <!-- Verified Studio Chip -->
+    <div
+      class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-elevated border border-brand-neon/30 text-xs text-brand-muted mb-8 shadow-[0_0_20px_rgba(16,245,161,0.15)]">
+      <span class="flex h-2 w-2 relative">
+        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-neon opacity-75"></span>
+        <span class="relative inline-flex rounded-full h-2 w-2 bg-brand-neon"></span>
       </span>
+      <span class="font-mono text-brand-neon font-semibold">GOOGLE PLAY STUDIO</span>
+      <span class="text-brand-dim">•</span>
+      <span class="font-mono text-[11px] text-slate-300">ANDROID 15 READY</span>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-      
-       Card Placeholder 1 --
-      <div class="glass-card p-6 rounded-2xl flex flex-col justify-between hover:border-brand-primary/50 transition-all duration-300 group">
-        <div>
-          <div class="w-12 h-12 rounded-xl bg-brand-dark border border-brand-border flex items-center justify-center text-brand-primary mb-4 font-mono font-bold text-lg group-hover:shadow-neon transition-all">
-            FX
+    <!-- Radical Typographic Headline -->
+    <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white leading-[1.08] mb-6 max-w-4xl">
+      NATIVE ANDROID.<br>
+      <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-neon via-emerald-300 to-teal-100">
+        ZERO TELEMETRY.
+      </span><br>
+      RADICAL SPEED.
+    </h1>
+
+    <!-- Studio Mission Statement -->
+    <p class="text-base sm:text-lg text-brand-muted max-w-2xl mb-10 leading-relaxed font-normal">
+      En Ambio Labs construimos micro-utilidades nativas hiper-enfocadas. Arquitectura 100% en el dispositivo con bases
+      SQLite locales, sin servidores de rastreo, sin SDKs de vigilancia y con cero desperdicio de batería.
+    </p>
+
+    <!-- Action Row -->
+    <div class="flex flex-wrap items-center justify-center gap-4 w-full sm:w-auto">
+      <a href="#apps"
+        class="btn-neon-cta px-8 py-3.5 rounded-xl text-xs uppercase tracking-wider flex items-center justify-center gap-2">
+        <span>Explorar Catálogo</span>
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+        </svg>
+      </a>
+      <a href="https://play.google.com/store/apps/dev?id=5425741795870723879" target="_blank" rel="noopener noreferrer"
+        class="btn-terminal-action px-7 py-3.5 rounded-xl text-xs font-mono flex items-center justify-center gap-2">
+        <span>play.google.com/dev</span>
+        <svg class="w-4 h-4 text-brand-neon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+        </svg>
+      </a>
+    </div>
+
+  </section>
+
+  <!-- =========================================================================
+       SPEC TICKER TAPE (Diagnostic Developer Metrics)
+       ========================================================================= -->
+  <section class="spec-ticker py-4 w-full overflow-x-auto">
+    <div
+      class="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between gap-8 text-xs font-mono text-brand-muted whitespace-nowrap">
+      <div class="flex items-center gap-2">
+        <span class="text-brand-neon font-bold">[METRIC 01]</span>
+        <span class="text-white">APK SIZE: &lt; 25 MB</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <span class="text-brand-neon font-bold">[METRIC 02]</span>
+        <span class="text-white">CLOUD TELEMETRY: 0 BYTES</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <span class="text-brand-neon font-bold">[METRIC 03]</span>
+        <span class="text-white">STORAGE: ENCRYPTED SQLITE</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <span class="text-brand-neon font-bold">[METRIC 04]</span>
+        <span class="text-white">ENGINE: JETPACK COMPOSE 120FPS</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <span class="text-brand-neon font-bold">[METRIC 05]</span>
+        <span class="text-white">PLAY DEV ID: 5425741795870723879</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       SHOWCASE: ASYMMETRIC BENTO GRID (#apps)
+       ========================================================================= -->
+  <section id="apps" class="max-w-7xl mx-auto px-4 sm:px-6 py-24 w-full">
+
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4 border-b border-white/[0.08] pb-6">
+      <div>
+        <div class="inline-flex items-center gap-2 text-xs font-mono text-brand-neon uppercase tracking-widest mb-2">
+          <span>CATÁLOGO DE PRODUCTO OFICIAL</span>
+        </div>
+        <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">Apps Publicadas</h2>
+        <p class="text-sm text-brand-muted mt-1">Disponibles de inmediato para su instalación desde Google Play Store.
+        </p>
+      </div>
+      <div class="flex items-center gap-2 text-xs font-mono text-brand-muted">
+        <span class="w-2 h-2 rounded-full bg-brand-neon animate-pulse"></span>
+        <span>2 Módulos Nativos en Producción</span>
+      </div>
+    </div>
+
+    <!-- Asymmetric Bento Matrix -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+
+      <!-- =====================================================================
+           CARD 1: Giffix: Stickers Animados (7 Cols - Featured Bento Card)
+           ===================================================================== -->
+      <article
+        class="lg:col-span-7 glass-panel-tech rounded-3xl p-6 sm:p-10 flex flex-col justify-between relative overflow-hidden group">
+
+        <div class="space-y-6">
+
+          <!-- Top Row: Icon, Category & Copyable Package -->
+          <div class="flex items-start justify-between gap-4">
+            <div class="flex items-center gap-4">
+              <div
+                class="w-16 h-16 rounded-2xl overflow-hidden p-0.5 bg-gradient-to-tr from-brand-neon to-emerald-950 shadow-neon shrink-0">
+                <img src="assets/icons/giffix-icon.png" alt="Icono Giffix"
+                  class="w-full h-full object-cover rounded-[14px]">
+              </div>
+              <div>
+                <div class="flex items-center gap-2">
+                  <span
+                    class="text-[11px] font-semibold px-2.5 py-0.5 rounded-full bg-emerald-950 border border-emerald-800 text-emerald-300">
+                    Personalización
+                  </span>
+                  <span class="text-[10px] font-mono text-brand-neon">★ 100% Sin Anuncios</span>
+                </div>
+                <h3 class="text-2xl sm:text-3xl font-extrabold text-white mt-1 tracking-tight">
+                  Giffix: Stickers Animados
+                </h3>
+              </div>
+            </div>
+
           </div>
-          <h3 class="text-lg font-bold text-white group-hover:text-brand-primary transition-colors">Calculadoras Especializadas</h3>
-          <p class="text-sm text-brand-muted mt-2 leading-relaxed">
-            Módulos de cálculo estático y simulación de comisiones. Sin suscripciones abusivas ni sobrecarga de publicidad.
+
+          <!-- Headline Value Prop -->
+          <p class="text-sm sm:text-base text-brand-muted leading-relaxed font-normal">
+            Convierte tus momentos, clips y recuerdos en stickers en movimiento para tus aplicaciones de mensajería
+            favoritas. Una experiencia ultra-rápida, libre de publicidad que interrumpa tu flujo, y con <strong
+              class="text-white font-semibold">procesamiento de archivos 100% local</strong> en tu propio dispositivo
+            móvil.
           </p>
+
+          <!-- Technical Specs Matrix (3 clean items) -->
+          <div class="grid grid-cols-3 gap-2 text-xs font-mono">
+            <div class="p-3 rounded-xl bg-black/40 border border-white/[0.04]">
+              <div class="text-[10px] text-brand-dim uppercase">Motor</div>
+              <div class="font-bold text-white mt-0.5">Kotlin Native</div>
+            </div>
+            <div class="p-3 rounded-xl bg-black/40 border border-white/[0.04]">
+              <div class="text-[10px] text-brand-dim uppercase">Renderizado</div>
+              <div class="font-bold text-brand-neon mt-0.5">On-Device</div>
+            </div>
+            <div class="p-3 rounded-xl bg-black/40 border border-white/[0.04]">
+              <div class="text-[10px] text-brand-dim uppercase">Publicidad</div>
+              <div class="font-bold text-white mt-0.5">Zero Ads</div>
+            </div>
+          </div>
+
+          <!-- Official Screenshot Gallery Carousel -->
+          <div class="space-y-2 pt-2">
+            <div class="flex items-center justify-between text-xs font-mono text-brand-muted">
+              <span>Capturas oficiales de Google Play</span>
+              <span class="text-[10px] text-brand-dim">&larr; Desliza horizontalmente &rarr;</span>
+            </div>
+            <div class="screenshot-scroller flex gap-3 overflow-x-auto pb-3 cursor-grab">
+              <img src="assets/screenshots/giffix-shot-1.png" alt="Captura Giffix 1"
+                class="h-48 w-auto rounded-xl border border-white/[0.08] shadow-lg object-cover">
+              <img src="assets/screenshots/giffix-shot-2.png" alt="Captura Giffix 2"
+                class="h-48 w-auto rounded-xl border border-white/[0.08] shadow-lg object-cover">
+              <img src="assets/screenshots/giffix-shot-3.png" alt="Captura Giffix 3"
+                class="h-48 w-auto rounded-xl border border-white/[0.08] shadow-lg object-cover">
+            </div>
+          </div>
+
         </div>
-        <div class="mt-6 pt-4 border-t border-brand-border/40 flex items-center justify-between">
-          <span class="text-xs font-mono text-emerald-400/80">En Producción</span>
-          <span class="text-xs font-semibold text-brand-muted group-hover:text-white flex items-center gap-1">Ver ficha &rarr;</span>
+
+        <!-- Footer Card Action Row -->
+        <div
+          class="pt-6 border-t border-white/[0.06] flex flex-col sm:flex-row items-center justify-between gap-4 mt-6">
+          <a href="privacy-sticker.html"
+            class="text-xs font-mono text-brand-muted hover:text-brand-neon transition-colors flex items-center gap-1.5">
+            <svg class="w-4 h-4 text-brand-neon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+            </svg>
+            <span>Política de Privacidad Giffix</span>
+          </a>
+          <a href="https://play.google.com/store/apps/details?id=dev.ambiolabs.sticker" target="_blank"
+            rel="noopener noreferrer"
+            class="btn-neon-cta w-full sm:w-auto px-6 py-3 rounded-xl text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2">
+            <span>Instalar en Google Play</span>
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
+          </a>
         </div>
+
+      </article>
+
+      <!-- =====================================================================
+           CARD 2: Historial de Notificaciones (5 Cols - Security Monitor Bento Card)
+           ===================================================================== -->
+      <article
+        class="lg:col-span-5 glass-panel-tech rounded-3xl p-6 sm:p-10 flex flex-col justify-between relative overflow-hidden group">
+
+        <div class="space-y-6">
+
+          <!-- Top Row: Icon, Category & Package -->
+          <div class="flex items-start justify-between gap-4">
+            <div class="flex items-center gap-4">
+              <div
+                class="w-16 h-16 rounded-2xl overflow-hidden p-0.5 bg-gradient-to-tr from-brand-neon to-emerald-950 shadow-neon shrink-0">
+                <img src="assets/icons/notificationlog-icon.png" alt="Icono Historial Notificaciones"
+                  class="w-full h-full object-cover rounded-[14px]">
+              </div>
+              <div>
+                <div class="flex items-center gap-2">
+                  <span
+                    class="text-[11px] font-semibold px-2.5 py-0.5 rounded-full bg-emerald-950 border border-emerald-800 text-emerald-300">
+                    Herramientas
+                  </span>
+                  <span class="text-[10px] font-mono text-brand-neon">★ SQLite Offline</span>
+                </div>
+                <h3 class="text-2xl sm:text-3xl font-extrabold text-white mt-1 tracking-tight">
+                  Historial de Notificaciones
+                </h3>
+              </div>
+            </div>
+          </div>
+
+
+          <!-- Description -->
+          <p class="text-sm sm:text-base text-brand-muted leading-relaxed font-normal">
+            Respaldo automático e ininterrumpido de las alertas de tu barra de estado. Diseñado para consultar mensajes
+            borrados antes de ser leídos y recuperar notificaciones descartadas accidentalmente. <strong
+              class="text-white font-semibold">100% privado y offline</strong>: ningún mensaje se sincroniza con
+            servidores remotos.
+          </p>
+
+          <!-- Screenshots Carousel -->
+          <div class="space-y-2 pt-2">
+            <div class="flex items-center justify-between text-xs font-mono text-brand-muted">
+              <span>Capturas de la app</span>
+              <span class="text-[10px] text-brand-dim">&larr; Desliza &rarr;</span>
+            </div>
+            <div class="screenshot-scroller flex gap-3 overflow-x-auto pb-3 cursor-grab">
+              <img src="assets/screenshots/notif-shot-1.png" alt="Captura Notif 1"
+                class="h-48 w-auto rounded-xl border border-white/[0.08] shadow-lg object-cover">
+              <img src="assets/screenshots/notif-shot-2.png" alt="Captura Notif 2"
+                class="h-48 w-auto rounded-xl border border-white/[0.08] shadow-lg object-cover">
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Footer Card Action Row -->
+        <div
+          class="pt-6 border-t border-white/[0.06] flex flex-col sm:flex-row items-center justify-between gap-4 mt-6">
+          <a href="privacy-notificationlog.html"
+            class="text-xs font-mono text-brand-muted hover:text-brand-neon transition-colors flex items-center gap-1.5">
+            <svg class="w-4 h-4 text-brand-neon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+            </svg>
+            <span>Política Notificaciones</span>
+          </a>
+          <a href="https://play.google.com/store/apps/details?id=dev.ambiolabs.notificationlog" target="_blank"
+            rel="noopener noreferrer"
+            class="btn-neon-cta w-full sm:w-auto px-6 py-3 rounded-xl text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2">
+            <span>Instalar en Google Play</span>
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
+          </a>
+        </div>
+
+      </article>
+
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       ENGINEERING ARCHITECTURE MANIFESTO (#about)
+       ========================================================================= -->
+  <section id="about" class="max-w-7xl mx-auto px-4 sm:px-6 py-20 w-full">
+    <div class="glass-panel-tech rounded-3xl p-8 sm:p-14 relative overflow-hidden">
+
+      <div class="max-w-2xl mb-12">
+        <span class="text-xs font-mono text-brand-neon uppercase tracking-widest">INGENIERÍA SIN CONCESIONES</span>
+        <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight mt-1">El Manifiesto Ambio Labs</h2>
+        <p class="text-sm sm:text-base text-brand-muted mt-3 leading-relaxed">
+          Las aplicaciones modernas se han convertido en plataformas hinchadas que rastrean cada interacción. Nosotros
+          construimos con la arquitectura opuesta:
+        </p>
       </div>
 
-      -- Card Placeholder 2 --
-      <div class="glass-card p-6 rounded-2xl flex flex-col justify-between hover:border-brand-primary/50 transition-all duration-300 group">
-        <div>
-          <div class="w-12 h-12 rounded-xl bg-brand-dark border border-brand-border flex items-center justify-center text-brand-primary mb-4 font-mono font-bold text-lg group-hover:shadow-neon transition-all">
+      <!-- 3 Clean Engineering Pillars -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+        <div class="p-6 rounded-2xl bg-[#06110C] border border-white/[0.06] hover:border-brand-neon/40 transition-all">
+          <div
+            class="w-10 h-10 rounded-xl bg-brand-neon/10 border border-brand-neon/30 flex items-center justify-center text-brand-neon mb-4 font-mono font-bold">
             01
           </div>
-          <h3 class="text-lg font-bold text-white group-hover:text-brand-primary transition-colors">Procesamiento Local de Archivos</h3>
-          <p class="text-sm text-brand-muted mt-2 leading-relaxed">
-            Conversión y optimización de medios directamente en la memoria del dispositivo. Cero subida a la nube para máxima privacidad.
+          <h3 class="text-lg font-bold text-white mb-2">Privacidad por Diseño</h3>
+          <p class="text-xs text-brand-muted leading-relaxed">
+            Sin cuentas de usuario obligatorias, sin recolección de correos ni sincronización oculta. Tus datos nunca
+            abandonan tu hardware.
           </p>
         </div>
-        <div class="mt-6 pt-4 border-t border-brand-border/40 flex items-center justify-between">
-          <span class="text-xs font-mono text-emerald-400/80">En Producción</span>
-          <span class="text-xs font-semibold text-brand-muted group-hover:text-white flex items-center gap-1">Ver ficha &rarr;</span>
+
+        <div class="p-6 rounded-2xl bg-[#06110C] border border-white/[0.06] hover:border-brand-neon/40 transition-all">
+          <div
+            class="w-10 h-10 rounded-xl bg-brand-neon/10 border border-brand-neon/30 flex items-center justify-center text-brand-neon mb-4 font-mono font-bold">
+            02
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">Kotlin & Jetpack Compose</h3>
+          <p class="text-xs text-brand-muted leading-relaxed">
+            Desarrollo nativo moderno. Animaciones fluidas a 120 FPS, tiempos de carga milimétricos y optimización
+            estricta de memoria RAM.
+          </p>
         </div>
+
+        <div class="p-6 rounded-2xl bg-[#06110C] border border-white/[0.06] hover:border-brand-neon/40 transition-all">
+          <div
+            class="w-10 h-10 rounded-xl bg-brand-neon/10 border border-brand-neon/30 flex items-center justify-center text-brand-neon mb-4 font-mono font-bold">
+            03
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">Play Console Compliance</h3>
+          <p class="text-xs text-brand-muted leading-relaxed">
+            Cumplimiento riguroso de la sección Data Safety de Google Play. Políticas de datos públicas, transparentes y
+            actualizadas.
+          </p>
+        </div>
+
       </div>
 
     </div>
   </section>
--->
 
-  <!-- Footer Legal (Requisito Play Console) -->
-  <footer class="border-t border-brand-border/60 bg-brand-dark/40 py-10 mt-16">
-    <div class="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-6 text-xs text-brand-muted">
-      
-      <div class="flex items-center gap-3">
-        <span class="font-bold text-white">Ambio Labs</span>
-        <span>•</span>
-        <span>&copy; 2026 Todos los derechos reservados.</span>
+  <!-- =========================================================================
+       SUPPORT CONSOLE & BUG GENERATOR (#contact)
+       ========================================================================= -->
+  <section id="contact" class="max-w-7xl mx-auto px-4 sm:px-6 py-20 w-full">
+    <div class="glass-panel-tech rounded-3xl p-8 sm:p-14 relative overflow-hidden">
+
+      <div class="max-w-2xl mb-8">
+        <span class="text-xs font-mono text-brand-neon uppercase tracking-widest">ATENCIÓN AL USUARIO &
+          DESARROLLO</span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mt-1">Soporte Técnico Directo</h2>
+        <p class="text-sm text-brand-muted mt-2">
+          Atención oficial para reporte de fallos, sugerencias de nuevas utilidades o dudas de compatibilidad.
+        </p>
       </div>
 
-      <!-- Enlaces que abren modales -->
-      <div class="flex items-center gap-6">
-        <button onclick="openModal('privacy-modal')" class="hover:text-brand-primary transition-colors">Política de Privacidad</button>
-        <button onclick="openModal('terms-modal')" class="hover:text-brand-primary transition-colors">Términos de Servicio</button>
-        <a href="mailto:iam.ambiorix@gmail.com" class="hover:text-brand-primary transition-colors">Contacto</a>
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+
+        <!-- Left: Email Action Box (7 cols) -->
+        <div class="lg:col-span-7 p-6 rounded-2xl bg-[#030706] border border-white/[0.08] space-y-4">
+          <div class="flex items-center gap-3">
+            <span class="w-2.5 h-2.5 rounded-full bg-brand-neon animate-pulse"></span>
+            <div>
+              <p class="text-[11px] font-mono text-brand-dim uppercase">Correo Electrónico Oficial</p>
+              <p class="text-lg sm:text-xl font-mono text-white font-bold select-all">iam.ambiorix@gmail.com</p>
+            </div>
+          </div>
+
+          <div class="flex flex-wrap items-center gap-3 pt-2">
+            <button onclick="copyToClipboard('iam.ambiorix@gmail.com', 'Correo')"
+              class="btn-terminal-action px-4 py-2.5 rounded-xl text-xs font-mono flex items-center gap-2">
+              <svg class="w-4 h-4 text-brand-neon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+              </svg>
+              <span>Copiar Correo</span>
+            </button>
+            <a href="mailto:iam.ambiorix@gmail.com?subject=[Ambio%20Labs]%20Consulta%20Android"
+              class="btn-neon-cta px-5 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider flex items-center gap-2">
+              <span>Enviar Mensaje</span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              </svg>
+            </a>
+          </div>
+
+          <div class="pt-4 border-t border-white/[0.06] flex items-center gap-2 text-xs font-mono text-brand-muted">
+            <span class="text-brand-neon">SLA DE RESPUESTA:</span>
+            <span>24 a 48 horas laborables garantizadas.</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       FOOTER
+       ========================================================================= -->
+  <footer class="border-t border-white/[0.08] bg-[#020504] py-16 mt-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
+
+        <div class="md:col-span-2 space-y-4">
+          <div class="flex items-center gap-3">
+            <div
+              class="w-7 h-7 rounded-full overflow-hidden p-[1.5px] bg-gradient-to-tr from-brand-neon to-emerald-900 shadow-neon">
+              <img src="logo.jpg" alt="Logo Ambio Labs" class="w-full h-full object-cover rounded-full">
+            </div>
+            <span class="font-extrabold text-base text-white">Ambio<span class="text-brand-neon">Labs</span></span>
+          </div>
+          <p class="text-xs text-brand-muted leading-relaxed max-w-sm font-normal">
+            Estudio de ingeniería móvil para Android. Creamos micro-utilidades rápidas, independientes y con privacidad
+            estricta.
+          </p>
+          <p class="text-[11px] font-mono text-brand-dim">
+            Google Play Developer Console ID: 5425741795870723879
+          </p>
+        </div>
+
+        <div class="space-y-3">
+          <h4 class="text-xs font-mono uppercase tracking-wider text-white font-bold">Portafolio Android</h4>
+          <ul class="space-y-2 text-xs text-brand-muted font-mono">
+            <li><a href="https://play.google.com/store/apps/details?id=dev.ambiolabs.sticker" target="_blank"
+                rel="noopener noreferrer" class="hover:text-brand-neon transition-colors">dev.ambiolabs.sticker</a></li>
+            <li><a href="https://play.google.com/store/apps/details?id=dev.ambiolabs.notificationlog" target="_blank"
+                rel="noopener noreferrer"
+                class="hover:text-brand-neon transition-colors">dev.ambiolabs.notificationlog</a></li>
+            <li><a href="#about" class="hover:text-brand-neon transition-colors">Arquitectura On-Device</a></li>
+          </ul>
+        </div>
+
+        <div class="space-y-3">
+          <h4 class="text-xs font-mono uppercase tracking-wider text-white font-bold">Legal & Soporte</h4>
+          <ul class="space-y-2 text-xs text-brand-muted font-mono">
+            <li><a href="privacy.html" class="hover:text-brand-neon transition-colors">Hub de Privacidad</a></li>
+            <li><a href="privacy-sticker.html" class="hover:text-brand-neon transition-colors">Privacidad Giffix</a>
+            </li>
+            <li><a href="privacy-notificationlog.html" class="hover:text-brand-neon transition-colors">Privacidad
+                Notificaciones</a></li>
+            <li><a href="terms.html" class="hover:text-brand-neon transition-colors">Términos de Servicio</a></li>
+            <li><a href="contact.html" class="hover:text-brand-neon transition-colors">Contacto Oficial</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div
+        class="pt-8 border-t border-white/[0.04] flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-brand-muted">
+        <p>&copy; 2026 Ambio Labs. Todos los derechos reservados.</p>
+        <p class="text-[11px] text-brand-dim font-mono text-center sm:text-right">
+          Android y Google Play son marcas registradas de Google LLC.
+        </p>
       </div>
 
     </div>
   </footer>
 
-  <!-- Modal Política de Privacidad -->
-  <div id="privacy-modal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-    <div class="glass-card max-w-2xl w-full max-h-[80vh] rounded-2xl p-6 sm:p-8 flex flex-col border border-brand-border">
-      <div class="flex items-center justify-between pb-4 border-b border-brand-border">
-        <h3 class="text-lg font-bold text-white">Política de Privacidad</h3>
-        <button onclick="closeModal('privacy-modal')" class="text-brand-muted hover:text-white text-lg">&times;</button>
-      </div>
-      <div class="overflow-y-auto py-4 text-xs leading-relaxed text-brand-muted space-y-4">
-        <p><strong>Última actualización:</strong> Septiembre 2026</p>
-        <p>En <strong>Ambio Labs</strong>, la privacidad de nuestros usuarios es una prioridad. Nuestras aplicaciones están diseñadas como micro-utilidades que operan principalmente de manera local en tu dispositivo móvil.</p>
-        <h4 class="text-white font-semibold">1. Datos Recopilados</h4>
-        <p>Nuestras aplicaciones no requieren la creación de cuentas ni recopilan identificadores personales directamente. Los datos de uso o cálculo se almacenan de forma local en la memoria interna de tu dispositivo.</p>
-        <h4 class="text-white font-semibold">2. Servicios Publicitarios de Terceros</h4>
-        <p>Para mantener nuestras aplicaciones gratuitas, utilizamos Google AdMob para servir anuncios. AdMob puede recopilar y procesar identificadores anónimos de publicidad del dispositivo y datos de diagnóstico para optimizar la entrega de anuncios.</p>
-        <h4 class="text-white font-semibold">3. Contacto</h4>
-        <p>Si tienes dudas sobre nuestras políticas de datos, puedes comunicarte a través del canal oficial de soporte.</p>
-      </div>
-      <div class="pt-4 border-t border-brand-border flex justify-end">
-        <button onclick="closeModal('privacy-modal')" class="px-4 py-2 bg-brand-primary text-brand-black rounded-lg font-semibold text-xs">Entendido</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- Modal Términos de Servicio -->
-  <div id="terms-modal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-    <div class="glass-card max-w-2xl w-full max-h-[80vh] rounded-2xl p-6 sm:p-8 flex flex-col border border-brand-border">
-      <div class="flex items-center justify-between pb-4 border-b border-brand-border">
-        <h3 class="text-lg font-bold text-white">Términos de Servicio</h3>
-        <button onclick="closeModal('terms-modal')" class="text-brand-muted hover:text-white text-lg">&times;</button>
-      </div>
-      <div class="overflow-y-auto py-4 text-xs leading-relaxed text-brand-muted space-y-4">
-        <p>Al descargar o utilizar las aplicaciones desarrolladas por <strong>Ambio Labs</strong>, aceptas estos términos en su totalidad. Nuestras herramientas se proporcionan "tal cual", sin garantías expresas sobre resultados específicos o cálculos de inversión/estimaciones. El usuario asume toda responsabilidad en el uso e interpretación de los datos procesados por las utilidades.</p>
-      </div>
-      <div class="pt-4 border-t border-brand-border flex justify-end">
-        <button onclick="closeModal('terms-modal')" class="px-4 py-2 bg-brand-primary text-brand-black rounded-lg font-semibold text-xs">Aceptar</button>
-      </div>
-    </div>
-  </div>
-
-  <script>
-    function openModal(id) {
-      document.getElementById(id).classList.remove('hidden');
-    }
-    function closeModal(id) {
-      document.getElementById(id).classList.add('hidden');
-    }
-  </script>
-
+  <!-- Interactive Experience Script -->
+  <script src="main.js"></script>
 </body>
-</html>
+
+</html>\n
